@@ -5,51 +5,49 @@
 % really where our solution originates, based on a real world problem,
 % even though our project is based on a "fun" project, it should still be possible to abstract it into real world applications
 \chapter{Introduction}
-\section{Initial analysis}
-Tracking airborne objects can be quite difficult, as hitting an airborne target requires tracking the object, along with its velocity and direction, as well as the calculation or prediction of its future trajectory.
-The trajectory can be impacted by a number of different factors, including gravity, wind, initial force, or any artificial acceleration.
-Furthermore, if the object is intelligent it might change its path, resulting in the predictions no longer being relevant.
-Tracking of airborne objects has different applications.
-\subsection{Airports}
-\textit{Birdstrikes} is the event of a bird colliding with aircrafts\cite{WildlifeStrikeReport}.
-An estimated thirteen thousand happen each year, most often during landing or takeoff\cite{CostOfBirdstrikes}.
-Although 65\% of the cases result in insignificant damage, the total yearly cost is estimated at 1.2 billion dollars worldwide\cite{CostOfBirdstrikes}.
+This project is very different form any thing we have ever worked on doing our studies. 
+The introduction there fore has be split into different sections, each describing the different aspects of the project. 
+First an short section about the project it self and its motivation. 
+Later an section about the start up process of the project work. 
+
+\section{About the project}
+The project for this semester is an multi group project where the primary goal is to deliver some value to the end users/costumers. 
+The project is named Giraf and is a tablet environment aimed at autistic children with little or no verbal communication.
+The project has been developed by Software 6. student since 2011 and has changed a lot over the years. 
+The Giraf project is used as a tool in many institutions in the Danish healthcare that specialises with autism. 
+
+The primary goal for the project over the last few years has been to make the entire system more reliable and stable. 
+Which has been done with great success but at the cost of all the applications in the project has stop working since the original back end was changed last year. 
+To further complicate the project the system was originally only available for Android which many of the users does not use any more since a large shift in technology has been done in the healthcare system so that the system should now be compatible with both Android and IOS devices. 
 
 
-Airports utilize different methods of bird control, including, trapping, poison, lights and shooting the birds\cite{BirdControlAtAirports}.
-Shooting the birds has been observed as being effective in combination with using other methods.
-This both eliminates individual birds, but also scares away other birds, which prevents potential bird strikes.
-However, the downside are the expenses in both salaries and effort.
+\section{Project start up}
+The project group was formed with a common interest as the primary reason. 
+All group members where interested in maintaining and upgrading the projects server infrastructure to accommodate the needs of the other project groups and the users of the system. 
+Before any coding or optimising could be done, the different responsibilities for each group must be established. 
+An initial meeting where held there all the groups and the semester coordinator had a brief discussion about the state of the project from last year. 
 
-\subsection{Military}
-In a military setting, hitting a moving airborne target is relevant in a defensive context, such as destroying incoming projectiles or shooting down hostile planes.
-Contrary to the airport case, the problem can arise at a variety of locations, both on vehicles, boats, planes and tanks, but also on stationary military installations.
-The American military developed the Phalanx CIWS, a close-in weapon system, which is a radar-guided 20mm Gatling-style rotary cannon, mounted on a base that moves on two axes.
-These are mounted on ships and can shoot incoming missiles and other airborne objects deemed a threat.
-Alternatives to the Phalanx exist, for example the Goalkeeper, and must rely on similar principles.
-Both the Phalanx and Goalkeeper are autonomous systems.
+One group choose to take on the role as product owner and where to establish a relation with the costumers as quickly as possible. 
+Once the costumer relation was established the requirements for the system could be established and the work distributed across re remaining groups.
 
-\subsection{Initial Problem}
-Tracking an airborne object has multiple different problem domains, making it an interesting domain to research.
-This report will examine ways of solving the aforementioned problem on a smaller scale.
+The group responsible for developing the development model that all groups must work according to decided that the entire project should work with the Scrum of Scrums model.
+While this model was used each group should be able to function as a full stack team, that is capable of handling every thing related to solving an issue in the project.
+Hence the groups where assigned as follows:
 
-Before hitting an airborne target, it is important to estimate its trajectory, and the problem can therefore be split into two sub-problems:
-\begin{enumerate}
-  \item Calculating the time it takes before a projectile will reach the target.
-  \item Calculating where the target will be in T milliseconds.
-\end{enumerate}
-Combined, these two subproblems results in the practice of finding the spot where the travel time of the target meets the travel time of the projectile.
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Group} & \textbf{Responsibility} \\ \hline
+SW602F19 & Scrum\\ \hline
+SW608F19 & Full stack\\ \hline
+SW609F19 & Full stack\\ \hline
+SW610F19 & Product Owner  \\ \hline
+SW611F19 & Full stack \\ \hline
+SW612F19 & Full stack \\ \hline
+SW613F19 & Full stack \\ \hline
+\end{tabular}
+\end{table}
 
-As the goal of this semester project is to apply the knowledge from the real time systems and machine intelligence courses, the problem that the project seeks to solve, should be within the domain of both, which is the case with the trajectory prediction problem.
-
-In regards to machine intelligence, the problem of tracking an airborne target has potential for intelligent analysis by an artificial agent.
-Likewise, it is a time-critical task to rotate a turret so that it aims at the target and hits the target, before the target is out of range or hits the ground.
-
-The report will use simplified targets to remove unpredictable parameters, and to remove the possibility of harming any living creatures.
-
-These considerations leads to the following initial problem:
-\label{key:initialProblem}
-\begin{center}
-  \textit{\textbf{How can a software system track a moving airborne target?}}
-\end{center}
-The analysis will result in a more in-depth set of requirements and a concrete problem statement.
+After the responsibilities where handed out to the different project groups the actual development could begin.
+The following project work will be described in Chanter~\ref{CAP:PrintsOfTheDevelopment}.
