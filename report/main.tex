@@ -9,8 +9,19 @@
 \end{titlingpage}
 
 \input{1.Introduction/0.PrefaceCtrl}
-\tableofcontents*
+\listoffigures
+\newpage
+\listoftables
+\newpage
+\tableofcontents
+\part{- Introduction -}\label{PART:Introduction}
+\input{1.Introduction/1.IntroductionCtrl}
+\part{- Sprints -}\label{PART:Sprints}
 \input{2.Sprints/SprintCtrl}
+\part{- Collaboration -}\label{PART:Collaboration}
+
+\part{- Evaluation -}\label{PART:Evalation}
+
 
 \begingroup
 	\raggedright
@@ -19,6 +30,7 @@
 \endgroup
 \cleardoublepage
 
+\part{- Appendix -}\label{PART:Appendix}
 \begin{appendices}
 \chapter{Appendix}
 \input{Appendix/0.AppendixCtrl}

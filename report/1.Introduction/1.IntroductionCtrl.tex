@@ -5,51 +5,80 @@
 % really where our solution originates, based on a real world problem,
 % even though our project is based on a "fun" project, it should still be possible to abstract it into real world applications
 \chapter{Introduction}
-\section{Initial analysis}
-Tracking airborne objects can be quite difficult, as hitting an airborne target requires tracking the object, along with its velocity and direction, as well as the calculation or prediction of its future trajectory.
-The trajectory can be impacted by a number of different factors, including gravity, wind, initial force, or any artificial acceleration.
-Furthermore, if the object is intelligent it might change its path, resulting in the predictions no longer being relevant.
-Tracking of airborne objects has different applications.
-\subsection{Airports}
-\textit{Birdstrikes} is the event of a bird colliding with aircrafts\cite{WildlifeStrikeReport}.
-An estimated thirteen thousand happen each year, most often during landing or takeoff\cite{CostOfBirdstrikes}.
-Although 65\% of the cases result in insignificant damage, the total yearly cost is estimated at 1.2 billion dollars worldwide\cite{CostOfBirdstrikes}.
+This project is very different from anything we have previously worked on during our studies. 
+The introduction has therefore been split into different sections, each describing the different aspects of the project. 
+First a short section about the project itself and its motivation. 
+Later a section about the start up process of the project work. 
 
+\section{About the Giraf project}
+The Giraf (Graphical Interface Resource for Autistic Folk) project is a software solution for autistic folk with little to non verbal communication.
+The software solution is primarily used as a scheduling assistant, but the solution also aims to assist in education and games. 
+The project has been developed by 6\textsuperscript{th} semester Software engineering students since 2011 and has changed a lot over the years. 
+After each project period the project is passed along to the next 6\textsuperscript{th} semester software engineering students.
 
-Airports utilize different methods of bird control, including, trapping, poison, lights and shooting the birds\cite{BirdControlAtAirports}.
-Shooting the birds has been observed as being effective in combination with using other methods.
-This both eliminates individual birds, but also scares away other birds, which prevents potential bird strikes.
-However, the downside are the expenses in both salaries and effort.
+Since the project has been running since 2011, the semester coordinator Ulrik Mathias Nyman  has had the overview of the project since the beginning. 
+He has been very engaged in the start up of the project at each semester in order to facilitate a smooth transition from the "normal" semester projects that the students has been used to, to this new multi group project work. 
+He has throughout the project been facilitating meetings and contact with the faculty to make the work for the students as effortless as possible.
 
-\subsection{Military}
-In a military setting, hitting a moving airborne target is relevant in a defensive context, such as destroying incoming projectiles or shooting down hostile planes.
-Contrary to the airport case, the problem can arise at a variety of locations, both on vehicles, boats, planes and tanks, but also on stationary military installations.
-The American military developed the Phalanx CIWS, a close-in weapon system, which is a radar-guided 20mm Gatling-style rotary cannon, mounted on a base that moves on two axes.
-These are mounted on ships and can shoot incoming missiles and other airborne objects deemed a threat.
-Alternatives to the Phalanx exist, for example the Goalkeeper, and must rely on similar principles.
-Both the Phalanx and Goalkeeper are autonomous systems.
+The project is an excellent learning opportunity for the students to learn that working with multiple costumers will result in unforeseen problems along the way.
 
-\subsection{Initial Problem}
-Tracking an airborne object has multiple different problem domains, making it an interesting domain to research.
-This report will examine ways of solving the aforementioned problem on a smaller scale.
+Throughout the project that has been multiple costumers:
 
-Before hitting an airborne target, it is important to estimate its trajectory, and the problem can therefore be split into two sub-problems:
-\begin{enumerate}
-  \item Calculating the time it takes before a projectile will reach the target.
-  \item Calculating where the target will be in T milliseconds.
-\end{enumerate}
-Combined, these two subproblems results in the practice of finding the spot where the travel time of the target meets the travel time of the projectile.
+\begin{itemize}
+	\item Børnehaven Birken, the local kindergarten
+	\item Egebakken, the local school
+	\item Fagcenter for Autisme og ADHD, a local center that facilitates activities for people with ADHD or autism
+	\item IT-chef i Ældre- og Handicapforvaltningen, the IT chief in the Elderly- and Disability-management
+\end{itemize}
 
-As the goal of this semester project is to apply the knowledge from the real time systems and machine intelligence courses, the problem that the project seeks to solve, should be within the domain of both, which is the case with the trajectory prediction problem.
+These costumers will play a large role doing the project period since it is their needs that will be inserted into the project backlog. 
+Hence all work that is done on the project will be done to facilitate their needs/wishes.
 
-In regards to machine intelligence, the problem of tracking an airborne target has potential for intelligent analysis by an artificial agent.
-Likewise, it is a time-critical task to rotate a turret so that it aims at the target and hits the target, before the target is out of range or hits the ground.
+\section{Scrum of Scrums}
+Since this project is a multi group, semester wide project, a team was made responsible for managing the work process. 
+This group decided that the entire project should be run as a scrum project, but that the individual groups were to decide how they would work.
 
-The report will use simplified targets to remove unpredictable parameters, and to remove the possibility of harming any living creatures.
+While one group was responsible for the work process, another group was responsible for facilitating the contact with the costumers, hence becoming the product owners of the project. 
+They where also responsible for planning each sprint so that the costumers would get the most amount of value as fast as possible.
+All groups were also participating in the planning of each sprint, as only they knew how much time they had for project work and an estimate of how many story points they could complete during the sprint.
 
-These considerations leads to the following initial problem:
-\label{key:initialProblem}
-\begin{center}
-  \textit{\textbf{How can a software system track a moving airborne target?}}
-\end{center}
-The analysis will result in a more in-depth set of requirements and a concrete problem statement.
+Doing a sprint each group were to send one representative to a weekly scrum stand up so that all the groups knew what each group was doing. 
+After each sprint a sprint retrospective and review meeting were held in order for the groups to share their experiences from the last sprint for the next sprint period.
+The outcome of this meeting were the points to make better in the next sprint period.
+
+In our group we would also follow the scrum guidelines in order to produce a better product with a higher degree of agility in anticipation of changing requirements from the costumers.
+Hence the name Scrum of Scrums, since we had multiple scrums processes running independent of each other.
+
+\section{Semester roles}
+Since the project was so large with regards to the number of participants, the group responsible for the work process decided that all teams were to be full stack teams. 
+The advantage of this is that each group contains the capabilities to make an issue from the project backlog. 
+Based on the old reports from the last few semesters, that had been working on this project, the main problem was that one group would be waiting on another group to finish before their work could begin. 
+Another problem that earlier semesters faced were that some groups did not feel as if they were a part of the project, since they would only be working on their own little niche part of the project without interacting with the rest of the semester.
+
+This new approach lead to the responsibilities of each group to be divided as can be seen on Figure~\ref{TBL:GroupResponsibility}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Group} & \textbf{Responsibility} \\ \hline
+SW602F19 & Process\\ \hline
+SW608F19 & Full stack\\ \hline
+SW609F19 & Full stack\\ \hline
+SW610F19 & Product Owner  \\ \hline
+SW611F19 & Full stack \\ \hline
+SW612F19 & Full stack \\ \hline
+SW613F19 & Full stack \\ \hline
+\end{tabular}
+\captionof{table}{Table showing the different responsibilities across the groups}\label{TBL:GroupResponsibility}
+\end{table}
+
+This split was made, to make sure that every group was involved with every aspect of the project work.
+
+\section{Tools}
+
+\section{Project start up}
+Before the fist sprint could start the two groups responsible for both process and costumer contact where given time to both formalise the common work process and to contact the costumers. 
+Once both groups where ready they where to precent their work to the rest of the groups. 
+
+Once all groups where aware of the work process and the backlog of the project the first sprint could be planned and stated as described in Part~\ref{PART:Sprints}.
