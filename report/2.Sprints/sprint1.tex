@@ -23,3 +23,20 @@ The other group had the user story: "As a guardian, I would like that the app is
 
 So as our user story was regarding authentication of a guardian entering guardian mode and the others regarding making the entire app work offline, including login authentication, therefore a resolution to who would work on what had to be found, such that we did not get any merge conflicts in the login authentication. 
 As our issue contained some frontend and backend while the others only really concerned the backend we agreed that they would resolve the backend work and we would work on the frontend part of our user story and then use the new login functionality that they made.
+
+\section{Encountered issues}
+During the sprint we encountered some issues with the framework xamarin, the framework that the frontend of the app was written in. 
+About a third of the giraf organization were on the OS GNU/Linux and unable to compile; those that were able to compile could either not sign the apk file or were unable to install the app onto a tablet with the apk file.
+So to resolve this issue the frontend meta group had a "emergency" meeting where the issue would be discussed.
+
+\subsection{Xamarin framework issue}
+The core of the issue was that the frontend of the app had been switched to the xamarin framework and this was not officially supported for GNU/Linux and there were no plans to make it officially supported \cite{xamarinSupport}.
+%https://forums.xamarin.com/discussion/1599/xamarin-studio-in-linux 
+%https://xamarin.uservoice.com/forums/144858-xamarin-platform-suggestions/suggestions/2697538-linux-support 
+So to mitigate this for us and future work we wanted to see if it was a viable and desired option to switch to another framework that was supported on all OS, such that we would not have to use a virtual machine with Microsoft Windows or Mac OS to compile and test any changes, which would not be an optimal solution.
+
+We first considered whether we should switch to another framework at all.
+For this discussion the frontend meta group held a meeting, where all were invited to listen in, as this was a big decision to be made.
+The meeting resulted in the decision to switch to a new framework called flutter, but before the decision was final those attending the meeting were to discuss it with their respective group and perhaps get some input that was not brought up during the meeting.
+Now a final meeting was held to discuss how the process should be handled.
+It was decided to handle the switch by letting a group of volunteers dedicate the weekend to write the core part of the frontend into flutter, and then to start everyone up the Monday would be used to make small/easy user stories that would be used to get started with flutter on Tuesday.
