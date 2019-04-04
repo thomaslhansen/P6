@@ -1,0 +1,30 @@
+\section{Flutter}
+Instead of Xamarin, flutter was chosen as the alternative framework.
+Flutter is a UI framework developed by google, where everything is designed as a widget.
+Flutter allows for cross platform development on a single codebase.
+The language used in the flutter framework is called dart, it is a general purpose language that is also developed by google.
+When using flutter three main ideas will have to be understood:
+Streams, reactive programming and the BLoC pattern.
+
+\subsection{Streams}
+In Flutter we use streams to convey data.
+Unlike traditional ways of updating variables, like for example a = b + c from a traditional imperative language, where a would be updated at the point in time that line of code is executed, and if changes occured to b or c, it would not necessarily have any direct effect on the variable a.
+Streams allow us to continuously convey data, and pretty much anything can be conveyed by these streams.
+Streams can be thought of, as having a sender and one or multiple subscribers.
+The streams send out data, and anyone can then listen in, by subscribing to the feed it sends out.
+If we again consider the example above, the variable a can now be updated automatically as a change occurs to b or c.
+%https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/
+\subsection{Reactive Programming}
+Reactive Programming is a programming paradigme where we handle asynchronous data streams. 
+In reactive programming, anything can be a stream; User input, variables and various data structures are all streams. The use of streams in this way, gives us the ability to abstract out code so it becomes easier to focus on the business logic instead of focusing on implementation details, likely resulting in a cleaner codebase.
+In reality this means, that we are able to create UI widgets, that doesnt need to know anything about the functionality it is executing. 
+When a widget sends data to a stream, it doesn't need to know anything about when or where that information will be used. The only thing it needs to concern itself with, is the sending and listening to data streams. The business logic can then be executed elsewhere. 
+%https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
+\subsection{BLoC}
+BLoC, not to be confused with blocks, is a pattern that google designed to separate the business logic of your application from the user interface.
+The BLoC pattern enforces that the business logic is moved into several BLoC's and by doing so, enforcing that widgets or UI components are only concerned with UI things, and absolutely oblivious to business logic. 
+The business logic also has to rely entirely on streams for its input and output.
+The BLoC pattern also enforces platform and environment independence. 
+What this actually means for us is, that by decoupling UI and business logic, we are able to make changes to the business logic without making big changes to the UI, and make changes to the UI without it having too big of an impact on the business logic. 
+By dividing business logic and UI, it also becomes easier to test the business logic, as it no longer has to be tested through the user interface. 
+%%https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/
