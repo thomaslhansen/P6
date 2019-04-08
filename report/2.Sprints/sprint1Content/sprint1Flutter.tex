@@ -18,7 +18,7 @@ If we again consider the example above, the variable a can now be updated automa
 Reactive Programming is a programming paradigme where we handle asynchronous data streams. 
 In reactive programming, anything can be a stream; User input, variables and various data structures are all streams. The use of streams in this way, gives us the ability to abstract out code so it becomes easier to focus on the business logic instead of focusing on implementation details, likely resulting in a cleaner codebase.
 In reality this means, that we are able to create UI widgets, that doesnt need to know anything about the functionality it is executing. 
-When a widget sends data to a stream, it doesn't need to know anything about when or where that information will be used. The only thing it needs to concern itself with, is the sending and listening to data streams. The business logic can then be executed elsewhere. 
+When a widget sends data to a stream, it does not need to know anything about when or where that information will be used. The only thing it needs to concern itself with is the sending and listening to data streams. The business logic can then be executed elsewhere. 
 %https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
 \subsection{BLoC}
 Business Logic Component pattern (BLoC), not to be confused with blocks, is a pattern that google designed to separate the business logic of your application from the user interface.
