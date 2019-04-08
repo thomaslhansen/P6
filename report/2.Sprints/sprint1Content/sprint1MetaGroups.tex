@@ -1,23 +1,23 @@
 \section{Meta groups}
-Doing the project start up it was decided that each group where to be full stack groups as mentioned in \autoref{SUBSEC:MetaGroups}. 
-Doing the first sprint each meta group held meetings to establish an common baseline of understanding regarding their fields. 
+During the project start up it was decided that each group were to be full stack groups as mentioned in \autoref{SUBSEC:MetaGroups}. 
+During the first sprint each meta group held meetings to establish a common baseline of understanding regarding their fields. 
 
-Doing the \textbf{Frontend} meta group meeting the design guide for the project was created. 
+During the \textbf{Frontend} meta group meeting the design guide for the project was created. 
 This design guide is used by all groups to establish a common understanding of how the design of the app should be structured. 
-Doing the meetings the frontend group decided that in order for all groups to be able to work on the app a change was needed. 
+During the meetings the frontend group decided that in order for all groups to be able to work on the app a change was needed. 
 Only $2/3$ of the developers could compile the app and hence work on it. 
 In order to maximise the throughput of the developers a change from the current framework was conducted.
 The framework has changed form Xamarin to Flutter which is fully cross platform, where Xamarin only will work on Windows and MacOS. 
 
-Doing the \textbf{Backend} meta group meetings it was established that "Sprint 1" where primarily a frontend sprint hence the backend group had minimal work to do. 
+During the \textbf{Backend} meta group meetings it was established that "Sprint 1" was primarily a frontend sprint hence the backend group had minimal work to do. 
 
-Doing the \textbf{Server} meta group meeting your server representative precented the findings he had made doing the discovery of how the server architecture where structured. 
-The server architecture handed over by the last semester where a big mess and nobody had an overview of that was what. 
-They had tried to setup the servers as a cluster where every server should be used to serve the entire application. 
-They had however made an environment that could facilitate that and de sided to use it as static servers without any regards to the assignment of each server. 
-For example the backup server which was supposed to be used to backup the data on the other servers where used to host both the backup and the Gogs build server along with it. 
-The web server tht has setup to serve the front page of the project was also used to host the Phabricator wiki and issue tracking software.
+During the \textbf{Server} meta group meeting our server representative presented the findings he had made during the discovery of how the server architecture were structured. 
+The server architecture handed over by the last semester was a big mess and nobody had an overview of the overall structure.
+They had tried to set the servers up as a cluster where every server should be used to serve the entire application. 
+They had however made an environment that could facilitate that and decided to use it as static servers without any regards to the assignment of each server. 
+For example the backup server which was supposed to be used to backup the data on the other servers was used to host both the backup and the Gogs build server along with it. 
+The web server that was set up to serve the front page of the project was also used to host the Phabricator wiki and issue tracking software.
 If one of the servers went down the entire project could not function. 
 
 It was quickly decided in the server meta group that a transition from the existing architecture to an more containerised structure would be preferred. 
-The transition to Docker was agreed upon and a small number of issues was added to the GitHub so that the group acting as product owners could add them to a future sprints. 
+The transition to Docker was agreed upon and a small number of issues was added to the GitHub so that the group acting as product owners could add them to future sprints. 
