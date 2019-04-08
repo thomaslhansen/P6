@@ -13,13 +13,13 @@ Streams allow us to continuously convey data, and pretty much anything can be co
 Streams can be thought of as having a sender and one or multiple subscribers.
 The streams send out data on which anyone can then listen in by subscribing to the feed the stream sends out.
 If we again consider the example above, the variable \lstinline{a} can now be updated automatically as changes occur to \lstinline{b} or\lstinline{c}.
-%https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/
+\cite{Flutterintro}
 \subsection{Reactive Programming}
 Reactive Programming is a programming paradigm capable of handling asynchronous data streams. 
 In reactive programming, anything can be a stream; user input, variables and various data structures are all streams. The use of streams in this way, gives us the ability to abstract out code so it becomes easier to focus on the business logic (instead of focusing on implementation details), likely resulting in a cleaner codebase.
 In reality this means we are able to create UI widgets, that does not need to know anything about the functionality it is executing. 
 When a widget sends data to a stream, it does not need to know anything about when or where that information will be used. The only thing it needs to concern itself with is the sending and listening to data streams. The business logic can then be executed elsewhere. 
-%https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
+\cite{ReactiveProg}
 \subsection{BLoC}
 Business Logic Component (BLoC) pattern, not to be confused with blocks, is a pattern that Google designed to separate the business logic of an application from the user interface.
 The BLoC pattern enforces that the business logic is moved into several BLoCs, and by doing so enforces that widgets or UI components are only concerned with UI things, and absolutely oblivious to business logic. 
@@ -27,4 +27,4 @@ The business logic also has to rely entirely on streams for its input and output
 The BLoC pattern also enforces platform and environment independence. 
 What this actually means for us is that by decoupling UI and business logic we are able to make changes to the business logic without making significant changes to the UI, and to make changes to the UI without it having too big of an impact on the business logic. 
 By dividing business logic and UI it also becomes easier to test the business logic, as it no longer has to be tested through the user interface. 
-%%https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/
+\cite{Flutterintro}
