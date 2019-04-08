@@ -15,7 +15,7 @@ The streams send out data on which anyone can then listen in by subscribing to t
 If we again consider the example above, the variable \lstinline{a} can now be updated automatically as changes occur to \lstinline{b} or\lstinline{c}.
 %https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/
 \subsection{Reactive Programming}
-Reactive Programming is a programming paradigme where we handle asynchronous data streams. 
+Reactive Programming is a programming paradigm capable of handling asynchronous data streams. 
 In reactive programming, anything can be a stream; User input, variables and various data structures are all streams. The use of streams in this way, gives us the ability to abstract out code so it becomes easier to focus on the business logic instead of focusing on implementation details, likely resulting in a cleaner codebase.
 In reality this means, that we are able to create UI widgets, that doesnt need to know anything about the functionality it is executing. 
 When a widget sends data to a stream, it does not need to know anything about when or where that information will be used. The only thing it needs to concern itself with is the sending and listening to data streams. The business logic can then be executed elsewhere. 
