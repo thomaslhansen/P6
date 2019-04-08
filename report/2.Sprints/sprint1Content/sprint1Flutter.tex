@@ -21,7 +21,7 @@ In reality this means, that we are able to create UI widgets, that doesnt need t
 When a widget sends data to a stream, it does not need to know anything about when or where that information will be used. The only thing it needs to concern itself with is the sending and listening to data streams. The business logic can then be executed elsewhere. 
 %https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
 \subsection{BLoC}
-Business Logic Component pattern (BLoC), not to be confused with blocks, is a pattern that google designed to separate the business logic of your application from the user interface.
+Business Logic Component (BLoC) pattern, not to be confused with blocks, is a pattern that Google designed to separate the business logic of an application from the user interface.
 The BLoC pattern enforces that the business logic is moved into several BLoC's and by doing so, enforcing that widgets or UI components are only concerned with UI things, and absolutely oblivious to business logic. 
 The business logic also has to rely entirely on streams for its input and output.
 The BLoC pattern also enforces platform and environment independence. 
