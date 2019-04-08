@@ -1,0 +1,36 @@
+\section{Server}\label{SEC:S2ServerWork}
+During "Sprint 1" the server meta group had established how the old server architecture were build. 
+Based on the founding then discovering the servers a suggestion for a new layout were proposed, it was deemed easier to request some new servers and migrate the existing data over to that, then it would be to clean up the original mess. 
+
+An request to ITS at AAU where made for new servers with the promise of shutting down the old servers once the new system is up and running. The original server layout where as following:
+
+\begin{table}[H]
+
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+Hostname & IP 			& RAM 	& CPU 		& Disk 	& OS 					\\ \hline
+Master00 & 192.38.56.37 	& 2 GB 	& 2 Cores 	& 22 GB 	& CentOS Linux 7.5.1804 	\\ \hline
+Node01 	& 172.19.0.244 	& 2 GB 	& 1 Core 	& 22 GB 	& CentOS Linux 7.5.1804 	\\ \hline
+Node02	& 172.19.0.245	& 2 GB	& 1 Core		& 22 GB	& CentOS Linux 7.5.1804	\\ \hline
+Node03	& 192.38.56.36	& 2 GB	& 1 Core 	& 22 GB	& CentOS Linux 7.5.1804 	\\ \hline
+GitLab 	& 192.38.56.136	& 4 GB	& 2 Cores 	& 46 GB 	& CentOS Linux 7.5.1804 	\\ \hline
+web01	& 192.38.56.38	& 2 GB	& 1 Core		& 22 GB 	& CentOS Linux 7.4.1708 	\\ \hline
+Backup01	& 172.19.0.235	& 4 GB	& 2 Cores	& 200 GB & CentOS Linux 7.2.1511 	\\ \hline
+\end{tabular}
+\end{table}
+
+Following this setup the following setup was requested:
+
+\begin{table}[H]
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+Hostname & IP				& RAM 	& CPU 		& Disk 	& OS 					\\ \hline
+Master00 & 172.19.10.29	& 4 GB	& 2 Cores	& 24 GB	& Ubuntu Server 18.04.2	\\ \hline
+Master01 & 172.19.10.30	& 4 GB	& 2 Cores	& 24 GB	& Ubuntu Server 18.04.2	\\ \hline			
+Node00 	& 172.19.10.31	& 2 GB	& 1 Core		& 24 GB	& Ubuntu Server 18.04.2	\\ \hline
+Node01 	& 172.19.10.32	& 2 GB	& 1 Core		& 24 GB	& Ubuntu Server 18.04.2	\\ \hline
+Node02 	& 172.19.10.33	& 2 GB	& 1 Core		& 24 GB	& Ubuntu Server 18.04.2	\\ \hline
+Node03 	& 172.19.10.34	& 2 GB	& 1 Core		& 24 GB	& Ubuntu Server 18.04.2	\\ \hline
+\end{tabular}
+\end{table}
+
