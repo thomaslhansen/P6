@@ -1,6 +1,6 @@
 \section{Planning}
 For this sprint the planning was held in a more relaxed fashion.
-It was not so much planning as it was an introduction to what the general goal of the sprint was.
+It was more of an introduction to the goals of the sprint, rather than an actual planning meeting.
 The reasoning is that we believed, from the feedback of sprint 1's retrospective, that we would achieve a faster and easier workflow by using the issue system from GitHub to see what current user stories were available and a priority for the sprint. 
 
 This switch in workflow also means that we are no longer using scrum of scrums, at least not in a traditional sense, but we are using a lot of the elements that it provides.
@@ -10,11 +10,11 @@ Instead we will be assigning ourselves to a fitting amount of user stories, that
 The sprint was to start on the 18\textsuperscript{th} of March and end on the 5\textsuperscript{th} of April. This gave us 15 workdays for this sprint.
 
 \subsection{Goals}
-The goal of this sprint was to make the flutter rewrite of the app more user friendly and improve the GUI in comparison to the, now, old xamarin implementation.
+The goal of this sprint was to make the flutter rewrite of the app more user friendly and improve the user experience of the app in comparison to the, now, old Xamarin implementation.
 In order to make the app more user friendly we were to implement more basic functionality into the flutter version of the app, as it was very lacking at this point.
 Most of the basic functionality was already described as user stories and available on GitHub. 
-These user stories were mainly related to making a flutter version of the old xamarin features and in the process improve and update them in accordance with the goals.
-To improve the GUI of the app we were to either use the prototypes that they had already attached to the user story or follow the design guide that the PO group made.
+These user stories were mainly related to making a flutter version of the old Xamarin features and in the process improve and update them in accordance with the goals.
+To improve the user interface of the app we were to either use the prototypes that they had already attached to the user story or follow the design guide that the PO group made.
 
 \subsection{Our initial user stories}
 After the introduction to the sprint, the PO group went out to each group to get some perspective of how far along everyone were with their current user stories, that remained from sprint 1, and to check whether or not a group was free to take new user stories.
@@ -30,7 +30,7 @@ These user stories were:
 \item "As a guardian I would like to be able to switch from citizen mode to guardian mode with the press of a button so that I can change the users schedule without restarting the application"
 \end{enumerate}
 
-The first user story depends on the second user story, so that when the app is in citizen mode a guardian can with their credentials log in as a guardian, which is in essence an administrator, by using the button that the second user story is about. 
+The first user story depends on the second user story, when the app is in citizen mode a guardian can with their credentials log in as a guardian, which is in essence an administrator, by using the button that the second user story is about. 
 
 %Why
 We chose these user stories as our tasks for this sprint to give the ability for a guardian to switch back into guardian mode, as currently the only way to do so was to logout and then login again. 
@@ -40,7 +40,8 @@ So we wanted to make it more convenient for the guardians to switch to guardian 
 Thanks to the PO group we had a clear goal for our user stories and how they would end up looking in the app. 
 This was thanks to the design guide that had been made between the customers and the PO group.
 
-The icon that would be used to the button to switch to guardian mode can be seen in \ref{changeToGuardianIcon} so the expected result of the 2\textsuperscript{nd} user story was that we added the icon to the appbar and then it would switch to guardian mode. 
+We expected the result of the 2\textsuperscript{nd} user story to be the addition of the icon to the appbar and by clicking the icon the user would be switched to guardian mode. 
+The icon of the button to switch to guardian mode can be seen in \ref{changeToGuardianIcon}.
 However, as we also took our 1\textsuperscript{st} user story into account immediately, so we wanted it to ask for password confirmation. 
 So instead of just switching to guardian mode it would now go to the password confirmation screen, seen in \ref{confirmPassScreenProto}, and only switch once a correct password was given.
 
@@ -48,4 +49,4 @@ So instead of just switching to guardian mode it would now go to the password co
 \figur{1}{images/citizenToGuardianPassScreen.png}{Prototype for confirming password}{confirmPassScreenProto}
 
 %How long will it take
-We do not expect to use a lot of time on these two user stories, but we still expect them to take around a work week, as we are only getting started with the flutter workprocess.
+We do not expect to use a lot of time on these user stories, but we do expect them to take around a work week, as we are only getting started with the flutter workprocess.
