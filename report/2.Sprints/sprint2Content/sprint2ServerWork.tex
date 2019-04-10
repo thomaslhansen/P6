@@ -61,7 +61,7 @@ If a an administrator needs to access one of the servers, the admin must be loca
 Once the new servers were setup by ITS, and we were given access to them, all servers were setup as a Docker Swarm. 
 On each server, Docker Community Edition was installed, and the master servers (Master00 and Master01) have been added as Swarm Managers whereas the node servers (Node00, Node01, Node02 and Node03) have been added as works. 
 
-Once each server has been added to the Docker Swarm, the command $docker node ls$ can be run to check the status of the Docker Swarm.
+Once each server has been added to the Docker Swarm, the command \lstinline[columns=fixed]{docker node ls} can be run to check the status of the Docker Swarm.
 The output can be seen on \autoref{FIG:DockerNodeLS}.
 \figur{1}{images/DockerNodeLS.png}{Output of docker node ls showing the nodes of the Docker Swarm.}{FIG:DockerNodeLS}
 
