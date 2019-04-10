@@ -1,12 +1,12 @@
 \section{Server}\label{SEC:S2ServerWork}
-During "Sprint 2" the project group where tasked with ordering new servers from ITS and investigation how the old servers were configured. 
-In the following we will present the work done and show how the new issues that has emerged afterwords. 
+During "Sprint 2" the project group was tasked with ordering new servers from ITS, as well as investigating how the old servers were configured. 
+In the following sections we will describe our work done on these tasks, and show how new issues emerged afterwords. 
 
 \subsection{Server requisition}
-During "Sprint 1" the server meta group had established how the old server architecture were build. 
-Based on the findings the server group made a suggestion for a new server layout, it was deemed easier to request some new servers and migrate the existing data over to that, then it would be to clean up the original mess. 
+During "Sprint 1" the server meta-group had established how the old server architecture was build. 
+Based on those findings, the server group made a suggestion for a new server layout, and it was simultaneously deemed easier to request some new servers and migrate the existing data from the old servers to the new ones, rather than to clean up the original mess. 
 
-An request to ITS at AAU where made for new servers with the promise of shutting down the old servers once the new system is up and running. The original server layout where as following:
+We made a request to ITS at AAU for new servers with the promise of shutting down the old servers once the new system is up and running. The original server layout was as following:
 
 \begin{table}[H]
 
@@ -23,7 +23,7 @@ Backup01	& 172.19.0.235	& 4 GB	& 2 Cores	& 200 GB & CentOS Linux 7.2.1511 	\\ \h
 \end{tabular}
 \end{table}
 
-Following this setup the following setup was requested and was granted by ITS:
+To replace this setup, the following new setup was requested and granted by ITS:
 
 \begin{table}[H]
 \begin{tabular}{|l|l|l|l|l|l|}
@@ -38,43 +38,44 @@ Node03 	& 172.19.10.34	& 2 GB	& 1 Core		& 24 GB	& Ubuntu Server 18.04.2	\\ \hlin
 \end{tabular}
 \end{table}
 
-One of the problems experienced by the server meta group was the constant pain of organizing the user account and passwords for all the different servers. 
-In order to mitigate these problems ITS suggested that the servers could be setup using Microsoft Active Directory(AD) authentication meaning the each of the server group member can sign in to the servers using their student email and password. 
+One of the problems experienced by the server meta-group was the constant pain of organizing the user account and passwords for accessing and managing all the servers. 
+In order to mitigate these problems ITS suggested that the servers could be setup using Microsoft Active Directory(AD) authentication, i.e. each of the server group members can sign in to the servers using their student email and password as credentials. 
 This makes it easier for the following semesters to take over the project since they could simply be added to the AD user group by ITS. 
 
-With access to the servers operating systems a software reboot can be attempted but since some of the servers may hang during the boot process some of the server group members where given access to the VMware Vsphere backend as can be seen on \autoref{FIG:VMwareVSphereClient}. 
+With access to the servers' operating systems, a software reboot can be attempted, but, since some of the servers may hang during the boot process, some of the server group members were given access to the VMware Vsphere back-end, as can be seen on \autoref{FIG:VMwareVSphereClient}. 
 Through this system the power settings for the virtual servers can be accessed and controlled directly by the students. 
 \figur{1}{images/VMwareVSphereClient.png}{Screenshot of the dashboard from VMware VSphere Client.}{FIG:VMwareVSphereClient}
 
-Another problem with the old servers where that all servers had an public IP address were all ports are exposed to the internet. 
-As a result of this each server has a large number of failed login attempts.
+Another problem with the old servers was that all servers had a public IP address where all ports are exposed to the internet. 
+As a result of this, each server has a large number of failed login attempts.
 On \autoref{FIG:OlderServerPortScan} the output of a port scan of the older servers can be seen. 
 With the new server architecture a similar scan should be minimal. 
 \figur{0.6}{images/GirafOldServerPortScan.png}{Output of nmap scan on the older server infrastructure.}{FIG:OlderServerPortScan}
 
-In order to avoid this in the future, and to follow best practices, only the two servers acting as master servers has been given an public IP address and to limit access even more only port $80$ and $443$ are open on the two servers. 
+In order to avoid this in the future, and to follow best practices, only the two servers acting as master servers are given a public IP address, and to limit access even more only port $80$ and $443$ are open on the two servers. 
 This will limit the attack surface open to attackers and to normal users. 
-Hence then needing to access one of the servers the admin must be located on the an AAU network, this can be accomplished by ether being on premise at AAU or via an Virtual Private Network(VPN).
+If a an administrator needs to access one of the servers, the admin must be located on the AAU network, which can be accomplished by ether being on AAU's premises, or via a Virtual Private Network(VPN).
 
 \subsection{New server setup}
 
-Once the new servers where setup by the ITS and we were given access to them, all servers was setup as a Docker Swarm. 
-The servers Master00 and Master01 where setup as Swarm Managers. 
-On each server Docker Community Edition have been installed and the master servers has been added as Swarm Managers. 
+Once the new servers were setup by ITS, and we were given access to them, all servers were setup as a Docker Swarm. 
+The servers Master00 and Master01 were setup as Swarm Managers. 
+On each server, Docker Community Edition was installed, and the master servers have been added as Swarm Managers. 
 
-Once each server has been added to the Docker Swarm the command $docker node ls$ can be run to check the status of the Docker Swarm, the output can be seen on \autoref{FIG:DockerNodeLS}
+Once each server has been added to the Docker Swarm, the command $docker node ls$ can be run to check the status of the Docker Swarm.
+The output can be seen on \autoref{FIG:DockerNodeLS}.
 \figur{1}{images/DockerNodeLS.png}{Output of docker node ls showing the nodes of the Docker Swarm.}{FIG:DockerNodeLS}
 
 With Docker installed and with the Docker Swarm setup, the entire hosting envionment is ready for the migration from the old server architecture to the new.
 
 \subsection{Open issues for future sprints}
-After the initial setup of the servers several new issues was created on the project GitHub. 
-Each issue was a task needed to be done as a part of the project and was as follows:
+After the initial setup of the servers, several new issues were created on the project GitHub. 
+Each issue is a task needed to be done as a part of the project, and is as follows:
 
 \begin{itemize}
-\item Setup NGINX as an reverse proxy for the Docker Swarm and document the work(\href{https://github.com/aau-giraf/wiki/issues/31}{Issue \texttt{\#}31}).
+\item Setup NGINX as a reverse proxy for the Docker Swarm and document the work(\href{https://github.com/aau-giraf/wiki/issues/31}{Issue \texttt{\#}31}).
 \item Migrate the WEB-API to Docker and document the work(\href{https://github.com/aau-giraf/wiki/issues/34}{Issue \texttt{\#}34}).
 \item Migrate the MySQL Database to Docker and document the work(\href{https://github.com/aau-giraf/wiki/issues/35}{Issue \texttt{\#}35}).
 \end{itemize}
 
-It is now a task for the product owner to decide whether the issues should be included in the next sprint.
+The task of deciding whether the issues should be included in the next sprint is handed over to the product owner group.
