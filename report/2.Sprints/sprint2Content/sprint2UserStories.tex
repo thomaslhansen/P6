@@ -1,0 +1,111 @@
+\section{User stories implementation}
+
+\subsection{Switch to guardian mode}
+As first described in \autoref{sprint2planstories} we were to make an icon that would act as a button in the appbar that would allow a guardian to switch the app to guardian mode.
+We were also given an icon to use for this task, so we added a button to the appbar in-line with the other currently available buttons.
+
+\todo{insert appbar picture}
+
+% æ, ø og å encodes rigtigt i listings
+\lstset{
+  literate=%
+  {æ}{{\ae}}1
+  {å}{{\aa}}1
+  {ø}{{\o}}1
+  {Æ}{{\AE}}1
+  {Å}{{\AA}}1
+  {Ø}{{\O}}1,
+  extendedchars=\true,
+  inputencoding=ansinew,
+  language=CSharp
+}
+
+\lstset{
+  caption=The code used to insert the change to guardian icon in the appbar,
+  label=changeToGuardianIconInAppbar
+}
+
+\begin{lstlisting}
+IconButton(
+  icon: Image.asset('assets/icons/changeToGuardian.png'),
+  tooltip: 'Skift til værge tilstand', 
+  onPressed: () {}
+)
+\end{lstlisting}
+
+The small snippet, seen in \autoref{changeToGuardianIconInAppbar}, is the bare minimum needed to insert an icon into the appbar. 
+The appbar itself consists of more code of course, but this is not relevant to this user story.
+
+\subsection{Confirm password}
+This user story adds onto the new icon that was inserted into the appbar. 
+The change is in the 'onPressed' function body. 
+As can be seen in \autoref{changeToGuardianDialogBox} the only difference is in the body of the 'onPressed: () {}', which is in between the curly brackets.
+
+\lstset{
+  caption=Dialog box for confirming password,
+  label=changeToGuardianDialogBox
+}
+
+\begin{lstlisting}
+IconButton(
+  icon: Image.asset('assets/icons/changeToGuardian.png'),
+  tooltip: 'Skift til værge tilstand',
+  onPressed: () {
+    Alert(
+      context: context,
+      style: _alertStyle,
+      title: 'Skift til værge',
+      content: Column(
+        children: <Widget>[
+          RichText(
+            text: TextSpan(
+              text: 'Logget ind som ',
+              style: DefaultTextStyle.of(context).style,
+              children: <TextSpan>[
+                TextSpan(
+                  text: _authBloc.loggedInUsername,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold
+                  )
+                ),
+              ],
+            ),
+          ),
+          TextField(
+            controller: passwordCtrl,
+            obscureText: true,
+            decoration: InputDecoration(
+              icon: const Icon(Icons.lock),
+              labelText: 'Adgangskode',
+            ),
+          ),
+        ],
+      ),
+      buttons: <DialogButton>[
+        DialogButton(
+          onPressed: () {
+            login(context, _authBloc.loggedInUsername,
+                passwordCtrl.value.text);
+            Routes.pop(context);
+          },
+          child: const Text(
+            'Bekræft',
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+          color: const Color.fromRGBO(255, 157, 0, 100),
+        )
+      ]).show();
+  },
+)
+\end{lstlisting}
+
+The 'onPressed' function will open up a new dialog box that will be centered in the screen and grey out anything else in the background. 
+In this dialogbox the user will see the username of the guardian that is responsible for the given citizen. 
+Below this they will have a textfield prompting for the matching password for the username. 
+Lastly there is a confirm button to attempt to change to guardian mode.
+All of this can be seen in \autoref{changeToGuardianDialogBoxImage}.
+
+\figur{0.7}{images/changeToGuardianDialogbox.png}{Dialogbox for changing to guardian mode}{changeToGuardianDialogBoxImage}
+
+This implementation is not the same as what was specified in the design guide, but as we made it according to the design guide the PO group stated that they would rather have it as a dialog box. 
+So instead of the implementation being a screen, now it is a dialog box that covers the center of the screen and greys out anything in the background.
