@@ -34,12 +34,14 @@ IconButton(
 \end{lstlisting}
 
 The small snippet, seen in \autoref{changeToGuardianIconInAppbar}, is the bare minimum needed to insert an icon into the appbar. 
+In the snippet the 'icon' simply refers to the path to the icon that should be used for the button, while the 'tooltip' is a short text that tells what the button is supposed to do. 
+Lastly the 'onPressed' is there for future use, as it currently does nothing. 
+The body of it is where any function that the button should have should be written.
 The appbar itself consists of more code of course, but this is not relevant to this user story.
 
 \subsection{Confirm password}
 This user story adds onto the new icon that was inserted into the appbar. 
-The change is in the 'onPressed' function body. 
-As can be seen in \autoref{changeToGuardianDialogBox} the only difference is in the body of the 'onPressed: () {}', which is in between the curly brackets.
+As can be seen in \autoref{changeToGuardianDialogBox} the addition occurred in the body of the 'onPressed: () {}' function.
 
 \lstset{
   caption=Dialog box for confirming password,
@@ -99,9 +101,9 @@ IconButton(
 )
 \end{lstlisting}
 
-The 'onPressed' function will open up a new dialog box that will be centered in the screen and grey out anything else in the background. 
-In this dialogbox the user will see the username of the guardian that is responsible for the given citizen. 
-Below this they will have a textfield prompting for the matching password for the username. 
+The 'onPressed' function will open a new dialog box that will be centered in the screen and grey out anything in the background, such that the dialogbox is now in focus and presented as such cleary to the user. 
+In this dialogbox the user will see the username of the guardian that was used at the time of logging in. 
+So in the case of the example in \autoref{changeToGuardianDialogBoxImage} the username used to log in was 'Graatand' and therefore the textfield prompting for a password, below the shown username, needs to get the matching password for that username. 
 Lastly there is a confirm button to attempt to change to guardian mode.
 All of this can be seen in \autoref{changeToGuardianDialogBoxImage}.
 
@@ -109,3 +111,6 @@ All of this can be seen in \autoref{changeToGuardianDialogBoxImage}.
 
 This implementation is not the same as what was specified in the design guide, but as we made it according to the design guide the PO group stated that they would rather have it as a dialog box. 
 So instead of the implementation being a screen, now it is a dialog box that covers the center of the screen and greys out anything in the background.
+The implementation also had an issue associated with it, as when the user would enter an incorrect password they would be logged out of the app, as their credentials no longer would be valid. 
+This was an issue with how the logged in status of the app was handled and is therefore seperate of this user story. 
+For this reason we simply reported it to the PO group and made a bug report on the GitHub repository.
