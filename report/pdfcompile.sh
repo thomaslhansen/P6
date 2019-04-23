@@ -12,6 +12,6 @@ pdflatex main.tex
 clear
 
 ### Copies compiled pdf with correct name-format ###
-cp main.pdf $(date +'%Y-%m-%d')-SW612F19.pdf
+cp main.pdf ~/Desktop/$(date +'%Y-%m-%d')-SW612F19.pdf
 
 echo 'Job done!'
