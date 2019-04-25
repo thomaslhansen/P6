@@ -71,11 +71,11 @@ With Docker installed and with the Docker Swarm setup, the entire hosting envion
 At the end of this sprint the new servers are ready for deploying the Giraf infrastructure. 
 However an early migration from the old server to the new has resulted in a working state that does not follow best practices and are not sustainable for long term deployment. 
 
-The \textbf{API} is not well intended to being migrated to Docker Swarm since it is dependant on the local appsettings file which contains the username and password for the database in plaintext. 
+The \textbf{API} is not well suited to being migrated to Docker Swarm since it is dependent on the local appsettings file which contains the username and password for the database in plaintext. 
 
-The \textbf{Database} does naturally move into a Docker Swarm environment but does not naturally scale across a multi node server infrastructure do to some file sharing problems. 
+The \textbf{Database} does naturally move into a Docker Swarm environment but does not naturally scale across a multi node server infrastructure due to some file sharing problems. 
 
-One huge problem with the old setup where that every thing is open to the public internet and does thus make it an huge target for hackers. 
+One huge problem with the old setup were that everything is open to the public internet and does thus make it a huge target for hackers. 
 On the new setup this has been mitigated by using a reverse proxy server that will pass the traffic intended for the different services. 
 This proxy setup has been implemented in a hurry and should be updated later as the rest of the services are added to the Docker Swarm. 
 
