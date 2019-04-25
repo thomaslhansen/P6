@@ -1,0 +1,19 @@
+\subsection{Backend}
+In this sprint, 2 backend meetings were held.
+
+It was decided that swagger should be used differently.
+Previously to when we chose to make use of flutter, swagger was used for auto-generating specifications that the frontend could use to communicate with the API.
+It was chosen, that doing this manually was preferable due to the greater control this would allow for.
+The automatic way with swagger also proved to be bothersome, as it would throw error messages.
+One member of the Backend group noticed that the auto-generated version would miss 20,000 commas.
+With these considerations in mind, the specification is now written manually.
+
+It was discussed that the api had several possible optimisations that could be made.
+These included fetching specific weekplans, and at times being able to fetch every single one.
+Suggested changes from the previous semesters were also discussed, some of them however; were not all equally relevant after the changes we have made this semester.
+We decided to not to implement all of these changes yet, as other concerns are more pressing.
+
+At the backend meeting, it was decided that new api endpoints should start with v2, as this would allow us to distinguish these from the rest.
+On the same note, the pictogram search was discussed too, as it currently made a query for each pictogram one at a time, where as we would like it to make a single query to fetch a list of pictograms instead.
+
+The last point that was discussed at the 2 meetings was how the admin panel seemed incredibly lackluster with its current implementation, since the admin currently only has rights to change the username of a citizen. It was decided to atleast allow the admin to Create, Read, Update and Delete. The placement of the panel was discussed, but this would be more of a frontend discussion for later, so no decision was taken in this regard.
