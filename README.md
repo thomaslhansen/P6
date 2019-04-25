@@ -2,10 +2,10 @@
 
 Sprint report structure 
 1. Sprint
-1.1 Planning
-1.2 Issues
-1.3 Implimentation
-1.4 META-groups
-1.5 Crunch
-1.6 Review
-1.7 Retrospective
+    1. Planning
+    2. Issues
+    3. Implimentation
+    4. META-groups
+    5. Crunch
+    6. Review
+    7. Retrospective
