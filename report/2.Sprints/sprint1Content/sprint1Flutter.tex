@@ -1,9 +1,10 @@
 \section{Flutter}
-Instead of Xamarin, flutter was chosen as the alternative framework.
-Flutter is a UI framework developed by google, where everything is designed as a widget.
-Flutter allows for cross platform development on a single codebase, which in turn allows for easy development for both Android and iOS.
-The language used in the flutter framework is called dart, which is a general purpose language also developed by google.
-When using flutter three main ideas will have to be understood:
+Instead of Xamarin, Flutter was chosen as the alternative framework.
+This was chosen by the Frontend meta group and was based on the assumption that a newer framework that was well documented would be fairly easy for all groups to adapt to. 
+Most groups also liked the new framework since designing in the framework is much similar to regular web development. 
+Flutter is a UI framework developed by Google, which is able to compile into native Android and IOS code which makes the app work at native speeds at both platforms. 
+The language used in the Flutter framework is called Dart, which is a general purpose language also developed by Google.
+When using Flutter three main ideas will have to be understood:
 Streams, reactive programming and the BLoC pattern.
 
 \subsection{Streams}
@@ -12,7 +13,7 @@ Unlike traditional ways of updating variables, e.g. \lstinline{a = b + c;} from 
 Streams allow us to continuously convey data, and pretty much anything can be conveyed by these streams.
 Streams can be thought of as having a sender and one or multiple subscribers.
 The streams send out data on which anyone can then listen in by subscribing to the feed the stream sends out.
-If we again consider the example above, the variable \lstinline{a} can now be updated automatically as changes occur to \lstinline{b} or\lstinline{c}.
+If we again consider the example above, the variable \lstinline{a} can now be updated automatically as changes occur to \lstinline{b} or \lstinline{c}.
 \cite{Flutterintro}
 \subsection{Reactive Programming}
 Reactive Programming is a programming paradigm capable of handling asynchronous data streams. 
