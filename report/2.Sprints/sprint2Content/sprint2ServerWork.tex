@@ -1,6 +1,6 @@
 \section{Server}\label{SEC:S2ServerWork}
 During "Sprint 2" the project group was tasked with ordering new servers from ITS, as well as investigating how the old servers were configured. 
-In the following sections we will describe our work done on these tasks, and show how new issues emerged afterwords. 
+In the following sections we will describe our work done on these tasks, and show how new issues emerged afterwards. 
 
 \subsection{Server requisition}
 During "Sprint 1" the server meta-group had established how the old server architecture was build. 
@@ -54,18 +54,30 @@ With the new server architecture a similar scan should be minimal.
 
 In order to avoid this in the future, and to follow best practices, only the two servers acting as master servers are given a public IP address, and to limit access even more only port $80$ and $443$ are open on the two servers. 
 This will limit the attack surface open to attackers and to normal users. 
-If a an administrator needs to access one of the servers, the admin must be located on the AAU network, which can be accomplished by ether being on AAU's premises, or via a Virtual Private Network(VPN).
+If a an administrator needs to access one of the servers, the admin must be located on the AAU network, which can be accomplished by either being on AAU's premises, or via a Virtual Private Network(VPN).
 
 \subsection{New server setup}
 
 Once the new servers were setup by ITS, and we were given access to them, all servers were setup as a Docker Swarm. 
-On each server, Docker Community Edition was installed, and the master servers (Master00 and Master01) have been added as Swarm Managers whereas the node servers (Node00, Node01, Node02 and Node03) have been added as works. 
+On each server, Docker Community Edition was installed, and the master servers (Master00 and Master01) have been added as Swarm Managers whereas the node servers (Node00, Node01, Node02 and Node03) have been added as workers. 
 
 Once each server has been added to the Docker Swarm, the command \lstinline[columns=fixed]{docker node ls} can be run to check the status of the Docker Swarm.
 The output can be seen on \autoref{FIG:DockerNodeLS}.
 \figur{1}{images/DockerNodeLS.png}{Output of docker node ls showing the nodes of the Docker Swarm.}{FIG:DockerNodeLS}
 
 With Docker installed and with the Docker Swarm setup, the entire hosting envionment is ready for the migration from the old server architecture to the new.
+
+\subsection{Status quo}
+At the end of this sprint the new servers are ready for deploying the Giraf infrastructure. 
+However an early migration from the old server to the new has resulted in a working state that does not follow best practices and are not sustainable for long term deployment. 
+
+The \textbf{API} is not well suited to being migrated to Docker Swarm since it is dependent on the local appsettings file which contains the username and password for the database in plaintext. 
+
+The \textbf{Database} does naturally move into a Docker Swarm environment but does not naturally scale across a multi node server infrastructure due to some file sharing problems. 
+
+One huge problem with the old setup were that everything is open to the public internet and does thus make it a huge target for hackers. 
+On the new setup this has been mitigated by using a reverse proxy server that will pass the traffic intended for the different services. 
+This proxy setup has been implemented in a hurry and should be updated later as the rest of the services are added to the Docker Swarm. 
 
 \subsection{Open issues for future sprints}
 After the initial setup of the servers, several new issues were created on the project GitHub. 
