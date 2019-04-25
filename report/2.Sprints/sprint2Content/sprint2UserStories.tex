@@ -6,26 +6,7 @@ We were also given an icon to use for this task, so we added a button to the app
 
 \todo{insert appbar picture}
 
-% æ, ø og å encodes rigtigt i listings
-\lstset{
-  literate=%
-  {æ}{{\ae}}1
-  {å}{{\aa}}1
-  {ø}{{\o}}1
-  {Æ}{{\AE}}1
-  {Å}{{\AA}}1
-  {Ø}{{\O}}1,
-  extendedchars=\true,
-  inputencoding=ansinew,
-  language=CSharp
-}
-
-\lstset{
-  caption=The code used to insert the change to guardian icon in the appbar,
-  label=changeToGuardianIconInAppbar
-}
-
-\begin{lstlisting}
+\begin{lstlisting}[caption={The code used to insert the change to guardian icon in the appbar}, captionpos=b, label=changeToGuardianIconInAppbar]
 IconButton(
   icon: Image.asset('assets/icons/changeToGuardian.png'),
   tooltip: 'Skift til værge tilstand', 
@@ -43,12 +24,7 @@ The appbar itself consists of more code of course, but this is not relevant to t
 This user story adds onto the new icon that was inserted into the appbar. 
 As can be seen when comparing \autoref{changeToGuardianIconInAppbar} and \autoref{changeToGuardianDialogBox} there has only been introduced more to the same 'IconButton' in the 'onPressed' methods body.
 
-\lstset{
-  caption=Dialog box for confirming password,
-  label=changeToGuardianDialogBox
-}
-
-\begin{lstlisting}
+\begin{lstlisting}[caption={Dialogbox for confirming password},captionpos=b, label=changeToGuardianDialogBox]
 IconButton(
   icon: Image.asset('assets/icons/changeToGuardian.png'),
   tooltip: 'Skift til værge tilstand',
