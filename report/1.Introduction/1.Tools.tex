@@ -1,2 +1,36 @@
 \section{Tools}
-\todo{This section will be written later}
+As a part of this project a number of different tools was used to facilitate the development done by the different groups.
+In the following each of the different tools will be described. 
+
+\subsection{GitHub}
+For hosting the code of the Giraf project the previous semesters has been using GitLab in a self hosted environment. 
+It was chosen to migrate from the self hosted GitLab to the regular GitHub.
+This was primarily done so project did not have to maintain the GitLab instance and servers.
+The GitHub has setup as an organisation so that all the different members of the project would add a team to the organization. On \autoref{GitHubOrg} the front page of the organization can been seen. 
+
+\figur{1}{images/GitHub.png}{GitHub Giraf organization main page}{GitHubOrg}
+
+Each developer group where added as GitHub Teams as can be seen on \autoref{GitHubTeams} so it would be easier to assign the different groups to a given issue or simply to tag the entire group in a comment. 
+
+\figur{1}{images/GitHubTeams.png}{GitHub Giraf team overview}{GitHubTeams}
+
+\subsection{Azure Pipeline}
+With GitHub it is possible to integrate different solutions for testing that a given branch where up to the quality standard. 
+Before each branch is able to merge it needs to pass two criteria. 
+First it needed to be review by two developers and one representative from the product owner group. 
+Additionally all checks implemented in the Azure pipeline would need to pass, as can be seen on \autoref{GitHubMergeControl}. 
+
+\figur{1}{images/GitHubMergeControl.png}{GitHub merge control}{GitHubMergeControl}
+
+The checks implemented where both the Flutter linter that would check that the code design followed Flutter guidelines. 
+The pipeline would also check if the flutter compile could compile with out any warnings/errors. 
+On \autoref{GitHubPipeline} the build result of a pipeline run can be seen.
+
+\figur{1}{images/GitHubPipeline.png}{GitHub Azure Pipeline integration}{GitHubPipeline}
+
+
+\subsection{Docker}
+
+\subsection{Slack}
+
+\subsection{Email}
