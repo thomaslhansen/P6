@@ -1,56 +1,56 @@
 \section{Tools}
-As a part of this project a number of different tools was used to facilitate the development done by the different groups.
+As a part of this project, a number of different tools were used to facilitate the development done by the different groups.
 In the following each of the different tools will be described. 
 
 \subsection{GitHub}
-For hosting the code of the Giraf project the previous semesters has been using GitLab in a self hosted environment. 
+For hosting the code of the Giraf project, the previous semesters has been using GitLab in a self hosted environment. 
 It was chosen to migrate from the self hosted GitLab to the regular GitHub.
-This was primarily done so project did not have to maintain the GitLab instance and servers.
-The GitHub has setup as an organisation so that all the different members of the project would add a team to the organization. On \autoref{GitHubOrg} the front page of the organization can been seen. 
+This was primarily done such that no one working on the project have to maintain the GitLab instance and servers.
+An organisation was setup on GitHub, and all the different members of the project would then add a team to the organization. On \autoref{GitHubOrg} the front page of the organization can been seen. 
 
 \figur{1}{images/GitHub.png}{GitHub Giraf organization main page}{GitHubOrg}
 
-Each developer group where added as GitHub Teams as can be seen on \autoref{GitHubTeams} so it would be easier to assign the different groups to a given issue or simply to tag the entire group in a comment. 
+Each developer group were added as GitHub Teams, as can be seen on \autoref{GitHubTeams}, which made it easier to assign the different groups to a given issue, or simply to tag the entire group in a comment. 
 
 \figur{1}{images/GitHubTeams.png}{GitHub Giraf team overview}{GitHubTeams}
 
 \subsection{Azure Pipeline}
-With GitHub it is possible to integrate different solutions for testing that a given branch where up to the quality standard. 
+With GitHub it is possible to integrate different solutions for testing whether or not a given branch is up to the quality standard. 
 Before each branch is able to merge it needs to pass two criteria. 
-First it needed to be review by two developers and one representative from the product owner group. 
-Additionally all checks implemented in the Azure pipeline would need to pass, as can be seen on \autoref{GitHubMergeControl}. 
+First it needs to be reviewed by two developers and one representative from the product owner group. 
+Additionally, all checks implemented in the Azure pipeline would need to pass, as can be seen on \autoref{GitHubMergeControl}. 
 
 \figur{1}{images/GitHubMergeControl.png}{GitHub merge control}{GitHubMergeControl}
 
-The checks implemented where both the Flutter linter that would check that the code design followed Flutter guidelines. 
-The pipeline would also check if the flutter compile could compile with out any warnings/errors. 
+The checks implemented were first of all the Flutter linter, which would check that the code design followed Flutter guidelines. 
+The pipeline would also check if the flutter-compiler could compile without any warnings/errors. 
 On \autoref{GitHubPipeline} the build result of a pipeline run can be seen.
 
 \figur{1}{images/GitHubPipeline.png}{GitHub Azure Pipeline integration}{GitHubPipeline}
 
 
 \subsection{Docker}
-The group where largely in charge of making the servers work with a minimal down time, e.i. where the services are unavailable.
-For this purpose Docker Community Edition was chosen as the solution for hosting the different services of the project. 
+The group was largely in charge of making the servers work with a minimal down time, i.e. time where the services are unavailable.
+For this purpose, Docker Community Edition was chosen as the solution for hosting the different services of the project. 
 Docker is a container platform that is able to mange large applications with ease. 
-For a production setup Docker Swarm is recommended as it is able to set up the services and mange them once running, it is able to handle service cashes and even do ongoing health checks to evaluate the health of the service. 
+For a production setup, Docker Swarm is recommended as it is able to set up the services (and manage them once running), able to handle service cashes, and even able to do ongoing health checks to evaluate the health of the service. 
 
-Once the Docker Swarm has been created, the developers should be able to virtualize the same production environment on their local machine. 
+Once the Docker Swarm has been created, the developers are able to virtualize the same production environment on each of their own local machines. 
 
-Docker uses an online repository to mange Docker Images from with it spins up the services. 
-For this project an Docker Hub organization was created to share the costume images written for the project. 
+Docker uses an online repository to mange Docker Images from which it spins up the services. 
+For this project, a Docker Hub organization was created to share the custom images written for the project. 
 An overview of the organization can be seen on \autoref{DockerHub}
 
 \figur{1}{images/DockerHub.png}{Docker Hub Organization}{DockerHub}
 
 \subsection{Slack}
-For internal communication both in the project group it self but also across all the other groups the Slack chat service was used as the primary mean of communication. 
-Slack offers the ability to create channels for each group as well as for more general purpose communication. 
-On \autoref{Slack} an selection of the channels can be seen. 
+For internal communication - both in the project group it self but also across all the other groups - the Slack chat service was used as the primary means of communication. 
+Slack offers the ability to create channels for each group as well as channels for more general purpose communication. 
+On \autoref{Slack} a selection of the channels can be seen. 
 
 \figur{0.3}{images/Slack.png}{Slack channels}{Slack}
 
-Slack does have the ability to integrate with other services such as GitHub and Google Calendar, this was however not used since it was deemed as an unnecessary noise that would make it harder for more important messages to get any attention. 
+Slack does have the ability to integrate with other services such as GitHub and Google Calendar, this was, however, not used since it was deemed as an unnecessary noise, which would make it harder for more important messages to get any attention. 
 
 \subsection{Email}
 For more formal communication outside the project itself, email was used as the official communication channel. 
