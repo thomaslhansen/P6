@@ -30,7 +30,21 @@ On \autoref{GitHubPipeline} the build result of a pipeline run can be seen.
 
 
 \subsection{Docker}
+The group where largely in charge of making the servers work with a minimal down time, e.i. where the services are unavailable.
+For this purpose Docker Community Edition was chosen as the solution for hosting the different services of the project. 
+Docker is a container platform that is able to mange large applications with ease. 
+For a production setup Docker Swarm is recommended as it is able to set up the services and mange them once running, it is able to handle service cashes and even do ongoing health checks to evaluate the health of the service. 
+
+Once the Docker Swarm has been created, the developers should be able to virtualize the same production environment on their local machine. 
+
+Docker uses an online repository to mange Docker Images from with it spins up the services. 
+For this project an Docker Hub organization was created to share the costume images written for the project. 
+An overview of the organization can be seen on \autoref{DockerHub}
+
+\figur{1}{images/DockerHub.png}{Docker Hub Organization}{DockerHub}
 
 \subsection{Slack}
+
+
 
 \subsection{Email}
