@@ -1,9 +1,13 @@
 \section{API Update}
-There was an issue with the database and the API requiring a lot of data being transferred when pictograms was requested. This was a problem because the database had trouble handling the huge amounts of data. 
+There was an issue with the database and the API requiring a lot of data being transferred when pictograms were requested. 
+This was a problem, as the database had trouble handling the huge amount of data. 
 
-During inspection of why this was the case, we discovered that the pictograms was stored in the database, requiring the pictograms to be extracted from the database every time a request for pictograms was made. 
+During inspection of why this was the case, we discovered that the pictograms were stored in the database, requiring the pictograms to be extracted from the database every time a request for pictograms were made. 
 
-In order to solve this, we decided to extract the pictograms from the database, and have them stored on disk, so they could just be loaded by the API. We than did some bench marking to determine if the change had improved the data transferred and response time. The improvement showed a huge improvement in both data transferred, and response time. The improvement can be seen in \autoref{tab:newApi}.
+In order to solve this, we decided to extract the pictograms from the database, and store them on disk, so they could just be loaded by the API. 
+We then did some benchmarking to determine if the change had improved the data amount transferred and response time. 
+The improvement showed a huge improvement in both data transferred, and response time. 
+The improvement can be seen in \autoref{tab:newApi}.
 
 \begin{table}[H]
     \centering
@@ -18,6 +22,9 @@ In order to solve this, we decided to extract the pictograms from the database, 
     \label{tab:newApi}
 \end{table}
 
-The massive improvement is due to data being stored outside the database, and not needing fetching and first being transferred to the api, and than to the client, but can be directly transferred to the client from the api. This improvement has other advantages than just being faster, it also puts less load on the database, allowing the database to handle more connections. This also massively reduced the size of the database, making it much easier to search in, and puts less stress on the disk.
+The massive improvement is due to data being stored outside the database, and not needing to be fetched and transferred to the API, and then to the client, but can be directly transferred to the client from the API. 
+This improvement has other advantages than just being faster, it also puts less load on the database, allowing the database to handle more connections. 
+This also massively reduced the size of the database, making it much easier to search in, and puts less stress on the disk.
 
-Conclusion is that the improvement to the back end, has decreased the amount of data being transferred, and decreased the work the database has to handle, and improved the response time massively. This update was worked on by members of the Server meta group, and was implemented with changes to the api and database. 
+Conclusion is that the improvement to the backend, has decreased the amount of data being transferred, and decreased the work the database has to handle, and improved the response time massively. 
+This update was worked on by members of the Server meta group, and was implemented with changes to the API and database. 
