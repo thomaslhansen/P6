@@ -1,12 +1,13 @@
 \section{Implementation}
-As described in \autoref{SEC:Sprint3Issues} the two issues assigned to the group for this sprint was primarily on the servers of the project. 
+As described in \autoref{SEC:Sprint3Issues} the two issues assigned to the group for this sprint were primarily on the servers of the project. 
 In the following the two issues and their related implementation will be elaborated upon.
 
 \subsection{MySQL migration}
 Based upon \href{https://github.com/aau-giraf/wiki/issues/35}{issue 35} the original database should be migrated from the existing servers to the new. 
-Since the new servers utilizes the Docker Swarm, the first order in solving the issue is to create a new service in the Swarm. This is done within the \text{docker-compose.yml} file. 
-On \autoref{DatabaseService} a part of the file is shown, the files shows the DB service and all its configurations. 
-The service uses the same version of MySQL as the old servers did, version $5.7.11$ in order to avoid any braking changes that the different versions of MySQL could have implemented in newer versions. 
+Since the new servers utilize the Docker Swarm, the first task in solving the issue is to create a new service in the Swarm. 
+This is done within the \text{docker-compose.yml} file. 
+On \autoref{DatabaseService} a part of the file is shown, displaying the definition of the DB service and all its configurations. 
+The service uses the same version of MySQL as the old servers did, version $5.7.11$, in order to avoid any braking changes that the different versions of MySQL could have implemented in newer versions. 
 The services uses a NFS file share hosted by ITS to store the database files. 
 This means that the service can be started in any of the servers and still have the same data available. 
 
@@ -27,26 +28,26 @@ DB:                          # The DB service will be changed to use the product
 %\dots%
 \end{lstlisting}
 
-The primary issue with the old servers where that the database was accessible from the public internet.
-In order to mitigate this issue the new Docker Swarm has two different networks one for the frontend and one for the backend. 
-The backend network is attached to both the API and the database services which means that in order to reach the database from in public internet all traffic must pass through the API. 
-Further more Docker allows us to specify what action should be taken once the service experiences a failure and are unable to recover, in this case the service should simple reboot. 
+The primary issue with the old servers was that the database was accessible from the public internet.
+In order to mitigate this issue the new Docker Swarm has two different networks; one for the frontend and one for the backend. 
+The backend network is attached to both the API and the database services which means that in order to reach the database from public internet all traffic must pass through the API. 
+Furthermore, Docker allows us to specify what action should be taken once the service experiences a failure and are unable to recover -- in this case the service should simply reboot. 
 
-Once the service had been started the only thing left was to create an dump from the existing MySQL server. 
+Once the service had been started, the only thing left was to create a dump from the existing MySQL server. 
 For this the tool \lstinline$mysqldump$ was used to dump the database to a file. 
 The newly created \lstinline$.sql$ file can now be moved to the new servers and imported into the database with the \lstinline$mysql -u root -p giraf-release < data.sql$
 
 Once the data has been imported into the database it is ready to serve the data for the project.
 
 \subsection{API migration}
-In order to migrate the API from the existing servers to the new the Docker Image used to serve the Docker container.
-The old semester had created a Dockerfile that used the Dotnet Core SDK for hosting the project which meant that the entire Docker Image would take up $2240 Mb$ for storage. 
-Since the new servers from ITS has a very small disk it would quickly fill them up rendering the servers unusable.
+In order to migrate the API from the existing servers to the new servers, the Docker Image used to serve the old Docker containers should be updated. 
+The old semester had created a Dockerfile that used the Dotnet Core SDK for hosting the project, which meant that the entire Docker Image would take up $2240 Mb$ for storage. 
+Since the new servers supplied by ITS have very small disk-storages, using the old image-files would quickly fill up the storage, rendering the servers unusable.
 This problem could however by fixed by telling the Dotnet Core SDK to build the project for production and then use the Dotnet Core runtime to serve the API. 
-These changes has resulted in a new Dockerfile that can be seen on \autoref{APIDockerfile}. 
+These changes have resulted in a new Dockerfile which can be seen on \autoref{APIDockerfile}. 
 
-By adding this extra step the total size of the Docker Image was reduced dramatic, as can be seen on \autoref{DockerImageSize}. 
-This reduction in size allows each server to more quickly pull a new image and resulting in the stored images to fill up much less disk space on the servers.
+By adding this extra step the total size of the Docker Image was reduced dramatically, as can be seen on \autoref{DockerImageSize}. 
+This reduction in size allows each server to more quickly pull a new image from a Docker-repository, and also results in the stored images to fill up much less disk space on the servers.
 
 \begin{table}[H]
 \centering
@@ -96,12 +97,12 @@ EXPOSE 5000
 ENTRYPOINT ["dotnet", "GirafRest.dll", "--list"]
 \end{lstlisting}
 
-Once the API Docker Image had been updated to not include passwords the Docker Swarm could be updated to use the new and enhanced Docker Image. 
+Once the API Docker Image had been updated to not include passwords, the Docker Swarm could be updated to use the new and enhanced Docker Image. 
 On \autoref{APIService} a section of the \lstinline$docker-compose.yml$ file can be seen.
 The service uses the a NFS file share to store pictograms and to store the confidential \lstinline$appsettings.json$ file which is then mounted inside the containers.
 
-The API services are all connected to both the frontend and backend network in order for the API to communicate to the database and for the API to communicate to the internet via a reverse proxy. 
-Each version of the API does have three replicas of each service, this is to void downtime on the entire service in case of a failure in a container.
+The API services are all connected to both the frontend and backend network in order for the API to communicate to the database, and for the API to communicate to the internet via a reverse proxy. 
+Each version of the API does have three replicas of each service, in order to void downtime on the entire service in case of a failure in a container.
 
 With Docker Swarm comes the ability to make ongoing health checks on the containers. 
 This is used in the API to check whether the API is still responding to a request or not.
