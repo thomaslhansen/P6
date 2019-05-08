@@ -1,1 +1,17 @@
 \section{Issues}
+Seeing as this group previously worked on the appbar, making a password confirmation prompt when going from citizen mode to guardian mode, our assigned issue for sprint 4 also had its ties to the appbar:
+
+\begin{enumerate}
+  \item As a citizen, the appbar should only show the icon "change to guardian mode" icon (issue \#121)
+\end{enumerate}
+
+In its current state, the app does complete a contextual change from guardian mode to citizen mode, and then removes the buttons leading to settings, editing, or logging out of the app, as can be seen on \autoref{GuardianModePre121} and \autoref{CitizenModePre121}.
+However, it does not remove the back-button in the upper left corner, which, when pressed in the current state of the app, leads to the screen where one would choose between the stored schedules.
+
+\figur{0.85}{images/GuardianModePreIssue121.png}{Screenshot from the app when in Guardian-mode}{GuardianModePre121}
+\figur{0.85}{images/CitizenModePreIssue121.png}{Screenshot from the app when in Citizen-mode (note the unintentional back-button in the upper left corner)}{CitizenModePre121}
+
+This is not the intended behaviour, as the citizen is not supposed to be able to switch between stored schedules -- this is a functionality reserved for the guardian.
+\autoref{CitizenModeProto} shows how the app screenshot should be looking, and therefore also acts as a goal to be reached when solving this issue.
+
+\figur{0.85}{images/PrototypeCitizenMode.png}{Prototype of how the appbar should look when the app is in citizen mode}{CitizenModeProto}
