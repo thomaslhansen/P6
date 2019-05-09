@@ -4,4 +4,19 @@ It was structured such that, the day leading up to the release we were to get as
 
 The rest of the crunch was on the release day where the focus was on fixing bugs, as to not introduce more bugs with new features just before releasing. 
 We worked on fixing a bug where the logout button did not redirect the user to the login screen after logging out successfully.
-We managed to get it fixed before the app was released.
+
+\subsection{Implementation} \todo{Not done yet, working on it currently}
+To implement a fix for the logout button not sending the user back to the login screen, we wrote a function to go home to the initial screen of the app, which was the login screen, this function can be seen in \autoref{snip:GoHomeFunc}.
+
+\begin{lstlisting}
+
+  /// Go home is used to pop everything until the navigator is on the
+  /// initialRoute.
+  static void goHome(BuildContext context) {
+    Navigator.of(context).popUntil((Route<dynamic> route) {
+      return route.settings.isInitialRoute;
+    });
+  }
+}
+\end{lstlisting}
+
