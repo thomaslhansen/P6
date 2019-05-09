@@ -5,10 +5,25 @@ It was structured such that, the day leading up to the release we were to get as
 The rest of the crunch was on the release day where the focus was on fixing bugs, as to not introduce more bugs with new features just before releasing. 
 We worked on fixing a bug where the logout button did not redirect the user to the login screen after logging out successfully.
 
-\subsection{Implementation} \todo{Not done yet, working on it currently}
+\subsection{Implementation}
+The original handler for taking a user back to the login screen can be seen in \autoref{snip:BeforeLogoutToLoginScreenBug}, where it simply makes use of a ternary operator to check if the user is logged in or not and depending on the result sends to user to the desired screen.
+
+\begin{lstlisting}[label={snip:BeforeLogoutToLoginScreenBug}, caption={The \_runApp function before the bug fix}, captionpos=b, language=CSharp]
+void _runApp() {
+  runApp(MaterialApp(
+      title: 'Weekplanner',
+      home: StreamBuilder<bool>(
+          initialData: false,
+          stream: di.getDependency<AuthBloc>().loggedIn,
+          builder: (_, AsyncSnapshot<bool> snapshot) =>
+              // In case logged in show ChooseCitizenScreen, otherwise login
+              snapshot.data ? ChooseCitizenScreen() : LoginScreen())));
+}
+\end{lstlisting}
+
 To implement a fix for the logout button not sending the user back to the login screen, we wrote a function to go home to the initial screen of the app, which was the login screen, this function can be seen in \autoref{snip:GoHomeFunc}.
 
-\begin{lstlisting}
+\begin{lstlisting}[label={snip:GoHomeFunc}, caption={The goHome function, which returns to the login screen from anywhere}, captionpos=b, language=CSharp]
 
   /// Go home is used to pop everything until the navigator is on the
   /// initialRoute.
@@ -20,3 +35,24 @@ To implement a fix for the logout button not sending the user back to the login 
 }
 \end{lstlisting}
 
+The goHome function was then called before returning the LoginScreen, which is the only semantic change from \autoref{snip:BeforeLogoutToLoginScreenBug} to \autoref{snip:AfterLogoutToLoginScreenBug}. 
+
+\begin{lstlisting}[label={snip:AfterLogoutToLoginScreenBug}, caption={The \_runApp function after the bug fix(notice the call to the goHome function)}, captionpos=b, language=CSharp] 
+void _runApp() {
+  runApp(MaterialApp(
+      title: 'Weekplanner',
+      home: StreamBuilder<bool>(
+          initialData: false,
+          stream: di.getDependency<AuthBloc>().loggedIn,
+          builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+            if (snapshot.data) {
+              /// In case logged in show ChooseCitizenScreen
+              return ChooseCitizenScreen();
+            } else {
+              /// Not loggedIn pop context to login screen.
+              Routes.goHome(context);
+              return LoginScreen();
+            }
+          })));
+}
+\end{lstlisting}
