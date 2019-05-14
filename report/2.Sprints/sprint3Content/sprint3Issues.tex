@@ -1,14 +1,14 @@
-\section{Issues}
-During the planning period, the product owner group decided that since we had been the driving force of the new server layout, we should continue the work on the servers. 
-Hence our sprint planning period was largely specified beforehand. 
+\section{Issues}\label{SEC:Sprint3Issues}
+During the planning period, the product owner group decided that since we had been the driving force of the new server layout, we should continue the work on the servers.
+Hence our sprint planning period was largely specified beforehand.
 The product owner group had assigned the group to two different issues on GitHub(\href{https://github.com/aau-giraf/wiki/issues/34}{Issue 34} and \href{https://github.com/aau-giraf/wiki/issues/35}{Issue 35})
 
-\textbf{Issue 34 - Migrate the WEB-API to Docker and document the work} was as the name suggests that the old API should be migrated to work in the new Docker Swarm environment. 
-This had not previously been possible since the WEB API had a dependency at compile time. 
-This dependency included the database connection string in plaintext and if pushed to the Docker Hub it could be reverse engineered and the password could be recovered. 
-One of the main objectives for this issue is therefore to remove the dependency of this appsettings file. 
+\textbf{Issue 34 - Migrate the WEB-API to Docker and document the work} was as the name suggests that the old API should be migrated to work in the new Docker Swarm environment.
+This had not previously been possible since the WEB API had a dependency at compile time.
+This dependency included the database connection string in plaintext and if pushed to the Docker Hub it could be reverse engineered and the password could be recovered.
+One of the main objectives for this issue is therefore to remove the dependency of this appsettings file.
 
-\textbf{Issue 35 - Migrate the MySQL Database to Docker and document the work} was an critical issue for the project since the existing database had been hosted in such a way that the database was accessible from the public internet. 
-This is a serious security risk since the MySQL version 5.7.11 has not been updated to mitigate any security issues found during the lifetime of the database. 
-As a result of this, the database should be migrated from the existing server to the new servers. 
-Since the new servers do not have the MySQL port $3306$ accessible from the internet. 
+\textbf{Issue 35 - Migrate the MySQL Database to Docker and document the work} was an critical issue for the project since the existing database had been hosted in such a way that the database was accessible from the public internet.
+This is a serious security risk since the MySQL version 5.7.11 has not been updated to mitigate any security issues found during the lifetime of the database.
+As a result of this, the database should be migrated from the existing server to the new servers.
+Since the new servers do not have the MySQL port $3306$ accessible from the internet.
