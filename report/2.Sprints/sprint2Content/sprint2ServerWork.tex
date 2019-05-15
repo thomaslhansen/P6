@@ -50,9 +50,9 @@ Through this system the power settings for the virtual servers can be accessed a
 
 Another problem with the old servers was that all servers had a public IP address where all ports are exposed to the internet.
 As a result of this, each server has a large number of failed login attempts.
-On \autoref{FIG:OlderServerPortScan} the output of a port scan of the older servers can be seen.
-With the new server architecture a similar scan should be minimal.
-\figur{0.6}{images/GirafOldServerPortScan.png}{Output of nmap scan on the older server infrastructure.}{FIG:OlderServerPortScan}
+On \autoref{FIG:OldServerPortScan} the output of a port scan of the old servers can be seen, a similar scan of the new servers should be minimal when compared.
+
+\figur{0.6}{images/OldNmapScan.png}{Output of nmap scan on the old server infrastructure.}{FIG:OldServerPortScan}
 
 In order to avoid this in the future, and to follow best practices, only the two servers acting as master servers are given a public IP address, and to limit access even more only port $80$ and $443$ are open on the two servers.
 This will limit the attack surface open to attackers and to normal users.
@@ -63,11 +63,18 @@ If an administrator needs to access one of the servers, the admin must be locate
 Once the new servers were setup by ITS, and we were given access to them, all servers were setup as a Docker Swarm.
 On each server, Docker Community Edition was installed, and the master servers (Master00 and Master01) have been added as Swarm Managers whereas the node servers (Node00, Node01, Node02 and Node03) have been added as workers.
 
-Once each server has been added to the Docker Swarm, the command \lstinline[columns=fixed]{docker node ls} can be run to check the status of the Docker Swarm.
+Once each server has been added to the Docker Swarm, the command \lstinline$docker node ls$ can be executed to check the status of the Docker Swarm.
 The output can be seen on \autoref{FIG:DockerNodeLS}.
 \figur{1}{images/DockerNodeLS.png}{Output of docker node ls showing the nodes of the Docker Swarm.}{FIG:DockerNodeLS}
 
-With Docker installed and with the Docker Swarm setup, the entire hosting envionment is ready for the migration from the old server architecture to the new.
+With Docker installed and with the Docker Swarm setup, the entire hosting environment is ready for the migration from the old server architecture to the new.
+
+For the time being an simple NGINX web server was setup to handle any traffic coming into the servers. 
+With the servers setup a new port scan, as can be seen on \autoref{FIG:NewServerPortScan}, shows that the amount of open ports has been reduced and are only able to serve http/https requests.
+
+\figur{0.6}{images/NewNmapScan.png}{Output of nmap scan on the new server infrastructure.}{FIG:NewServerPortScan}
+
+This is a huge improvement compared to the old server scan, see \autoref{FIG:DockerNodeLS}, where all unnecessary services has been shutdown and blocked from the internet. 
 
 \subsection{Status quo}
 At the end of this sprint the new servers are ready for deploying the Giraf infrastructure.

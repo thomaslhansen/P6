@@ -1,0 +1,23 @@
+\section{Server layout}
+
+Throughout the project period the overall structure of the project has changed a lot. 
+With the new server layout, most of the way the app communicates with the API has changed. 
+On \autoref{FIG:OldGirafOverview} and \autoref{FIG:NewGirafOverview} both the new and the old overview can be seen. 
+
+The key difference is that the app can now be compiled to both IOS and Android, which was previously not possible. 
+The old app was developed in Xamarin since it, at that time, could be compiled to IOS but after the release of IOS version 10, the compiler no longer worked. 
+Since the new app is written in Flutter, it is able to compile to both devices. 
+
+\figur{0.55}{images/GirafOverviewOld.png}{Diagram showing the old server overview}{FIG:OldGirafOverview}
+
+Another key difference is that the database is no longer accessible from the internet since it is only connected to the API network inside the Docker Swarm. 
+Even the API's are no longer directly connected to the internet since they are served via the reverse NGINX proxy.
+
+On the earlier version of the API it would connect to the database via the public internet even though they where connected to the same internal network.
+This resulted in a lot of traffic being transmitted via the internet even through a more direct route was possible. 
+
+\figur{1}{images/GirafOverview.png}{Diagram showing the new server overview}{FIG:NewGirafOverview}
+
+Finally the amount of both API and proxy services has been increased to guarantee stability and high availability of the services. 
+With the old layout, if the API were to crash the API had to be manually restated which was a huge pain for the server group, in terms of additional work and stress. 
+With the new layout however, the Docker Swarm has been setup to conduct health checks on the services and automatically restart the service in case of a failure.
