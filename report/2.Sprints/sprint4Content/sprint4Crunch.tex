@@ -2,15 +2,22 @@
 To check whether all the issues had been correctly implemented during the sprint, the PO group had a document that listed all the issues and who were to check which, so that we could find any new bugs or perhaps inadequate implementations.
 
 We were assigned to check three issues.
-All of the issues had been fixed adequately, but when checking one of the \href{https://github.com/aau-giraf/weekplanner/issues/128}{issues}, "When changing from citizen to guardian, the password is saved in the input field", a bug was discovered.
+All of the issues had been fixed adequately, but when checking one of the issues (\href{https://github.com/aau-giraf/weekplanner/issues/128}{Issue \texttt{\#}128}), "When changing from citizen to guardian, the password is saved in the input field", a bug was discovered.
 The issue was technically fixed, but there was a bug related to it; When entering a wrong or empty password the user would not get any error message stating that the password was incorrect.
 Additionally the user would also not be able to switch to guardian mode with the correct password after having entered a wrong or empty password.
-This meant that we had a new \href{https://github.com/aau-giraf/weekplanner/issues/253}{issue}.
-%Maybe mention that this was fixed before release?
+This meant that a new issue could be created; \href{https://github.com/aau-giraf/weekplanner/issues/253}{Issue \texttt{\#}253}.
+This issue was fixed during the sprint crunch by another group and was hence fixed in the release of the app.
 
-%Thomas helped Morten and Thue with some server/API?
+Throughout the sprint crunch our group was primarily collaborating with group 11 on fixing a bug in the web API (\href{https://github.com/aau-giraf/web-api/issues/26}{Issue \texttt{\#}26}).
+The issue was originally related to an inconsistency between the way our database and app handles date/time formats. 
+Date/times was add to the pictograms in order to keep track of when they was last edited, this was a requirement from the PO group. 
+This issue was fixed by converting all date/times to universal time on the API. 
 
+However while fixing the issue an other bug was discovered.
+The implementation of uploading new pictograms via the API was constructed with a redundant file in case something went wrong while uploading the file. 
+This was accomplished by creating a temporary file with the new pictogram, and generating a backup of the original pictogram by moving it with a new name. 
+There a plenty of functions for moving files around in the operating system in C\texttt{\#} however since we uses Docker to host the API, these could not be used. 
 
-Another group discovered an issue with moving files on linux systems through the API.
-%I guess Thomas knows about this in more detail
+It was decided by the PO that the redundant files was not essential and the functionality was removed.
 
+Both of these issues was closed via the same pull request, \href{https://github.com/aau-giraf/web-api/pull/36}{Pull request \texttt{\#}36}, and the last issue never got an issue number since it was deemed a part of the original problem. 
