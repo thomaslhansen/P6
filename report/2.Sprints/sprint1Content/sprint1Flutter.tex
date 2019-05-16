@@ -1,17 +1,19 @@
-\section{Implementation}\todo{Write a new introduction to this section}
-During the sprint we encountered some issues with the framework xamarin, the framework that the frontend of the app was written in. 
-About a third of the Giraf organization were on the OS GNU/Linux and unable to compile; those that were able to compile could either not sign the apk file or were unable to install the app onto a tablet with the apk file.
-So to resolve this issue the frontend meta group had a "emergency" meeting where the issue would be discussed.
+\section{Implementation}
+Before we began on working on the implementation we used some time trying to set up the compiler for Xamarin, to first ensure that we were able to develop in Xamarin.
+However, we encountered some issues.
+About a third of the Giraf organization were on a Linux based OS and unable to compile; those that were able to compile could either not sign the apk file, or were unable to install the app on any android device with the apk file.
+So to resolve this issue the frontend meta group had an emergency meeting, where the issue would be discussed.
 
-\subsection{Xamarin framework issue}\todo{Rewrite this subsection}
-The core of the issue was that the frontend of the app had been switched to the xamarin framework and this was not officially supported for GNU/Linux and there were no plans to make it officially supported \cite{xamarinSupport} \cite{xamarinSupport2}.
-So to mitigate this for us and future work we wanted to see if it was a viable and desired option to switch to another framework that was supported on all OS, such that we would not have to use a virtual machine with Microsoft Windows or Mac OS to compile and test any changes, which would not be an optimal solution.
+\subsection{Xamarin issue}
+The frontend of the app had been switched to the Xamarin framework, and this was not officially supported for Linux, and there were no plans to make it officially supported \cite{xamarinSupport} \cite{xamarinSupport2}.
+So to mitigate this for us and future groups we considered if it was a viable and desirable option to switch to another framework that was supported on all OS's, such that we would not have to use a virtual machine with Microsoft Windows or Mac OS to compile and test any changes, as it would not be an optimal solution.
 
-We first considered whether we should switch to another framework at all.
+First it was considered whether we should switch to another framework at all.
 For this discussion the frontend meta group held a meeting, where all were invited to listen in, as this was a big decision to be made.
-The meeting resulted in the decision to switch to a new framework called Flutter, but before the decision was final those attending the meeting were to discuss it with their respective group and perhaps get some input that was not brought up during the meeting.
-Now a final meeting was held to discuss how the process should be handled.
-It was decided to handle the switch by letting a group of volunteers dedicate the weekend to write the core part of the frontend into Flutter. So that the rest of the project could start everyone up the Monday, and make small/easy user stories that would be used to get started with flutter on Tuesday.
+The meeting resulted in the decision to switch to a new framework, but before the decision was final those attending the meeting were to discuss it with their respective group and perhaps get some input that was not brought up during the meeting.
+Now a final meeting was held to discuss how the process should be handled and what the new framework should be.
+It was decided to handle the switch by letting a group of volunteers dedicate the weekend to write the core part of the frontend into the new framework; Flutter. 
+This group of volunteers were also tasked with making some simple first introductory issues for the rest of the Giraf organization to help make them more familiar with the language.
 
 \subsection{Flutter}
 Instead of Xamarin, Flutter was chosen as the alternative framework.
