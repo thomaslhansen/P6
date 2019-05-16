@@ -37,7 +37,7 @@ The goHome function will pop any contexts from the stack, such that it is only t
 \end{lstlisting}
 
 At first glance the difference between \autoref{snip:BeforeLogoutToLoginScreenBug} and \autoref{snip:AfterLogoutToLoginScreenBug} may seem greater than it is.
-The only difference is how the condition is checked, in \autoref{snip:BeforeLogoutToLoginScreenBug} a ternary operator is used and in \autoref{snip:AfterLogoutToLoginScreenBug} an if-else is used.
+In reality, the only difference is how the condition is checked, in \autoref{snip:BeforeLogoutToLoginScreenBug} a ternary operator is used and in \autoref{snip:AfterLogoutToLoginScreenBug} an if-else is used.
 An if-else is used now instead as the else clause has two statements now instead of one.
 The added statement is the goHome function, seen on line $13$ in \autoref{snip:AfterLogoutToLoginScreenBug}.
 
