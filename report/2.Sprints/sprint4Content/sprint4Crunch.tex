@@ -1,1 +1,23 @@
 \section{Sprint crunch}
+To check whether all the issues had been correctly implemented during the sprint, the PO group had a document that listed all the issues and which groups were meant to check which issues, so any new bugs or inadequate implementations could be found.
+
+We were assigned to check three issues.
+All of the issues had been fixed adequately, but when checking one of the issues (\href{https://github.com/aau-giraf/weekplanner/issues/128}{Issue \texttt{\#}128}), "When changing from citizen to guardian, the password is saved in the input field", a bug was discovered.
+The issue was technically fixed, but there was a bug related to it; When entering a wrong or empty password the user would not get any error message stating that the password was incorrect.
+Additionally the user would also not be able to switch to guardian mode with the correct password after having entered a wrong or empty password.
+This meant that a new issue could be created; \href{https://github.com/aau-giraf/weekplanner/issues/253}{Issue \texttt{\#}253}.
+This issue was fixed during the sprint crunch by another group and was hence fixed in the release of the app.
+
+Throughout the sprint crunch our group was primarily collaborating with group 11 on fixing a bug in the web API (\href{https://github.com/aau-giraf/web-api/issues/26}{Issue \texttt{\#}26}).
+The issue was originally related to an inconsistency between the way our database and app handles date/time formats. 
+Date/times was added to the pictograms in order to keep track of when they was last edited, this was a requirement from the PO group. 
+This issue was fixed by converting all date/times to universal time on the API. 
+
+However, while fixing the issue another bug was discovered.
+The implementation of uploading new pictograms via the API was constructed with a redundant file in case something went wrong while uploading the file. 
+This was accomplished by creating a temporary file with the new pictogram, and generating a backup of the original pictogram. 
+There are plenty functions for moving files around in the operating system in C\texttt{\#} however since we use Docker to host the API, these could not be used. 
+
+It was decided by the PO that the redundant files were not essential and the functionality was removed.
+
+Both of these issues were closed via the same pull request, \href{https://github.com/aau-giraf/web-api/pull/36}{Pull request \texttt{\#}36}, and the last issue never got an issue number since it was deemed a part of the original problem. 
