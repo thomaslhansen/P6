@@ -1,1 +1,51 @@
 \section{Sprint retrospective}
+Despite not being able to make practical use of the feedback from this retrospective, we still had the meeting. 
+It was believed that it could be a benefit to our own experience, the readers of this report, and the next Giraf project.
+
+The most agreed upon comments were:
+\begin{itemize}
+  \item The faster response to pull requests was nice
+  \item It is easier to communicate with others if they are on-location and not working remotely
+  \item The meta groups were useful; It was nice with a dedicated group for frontend, backend, and server to ask questions
+  \item The fullstack group structure was nice
+  \item Plenty of standup meetings were good; they would be short if nothing new had happend, but still informative
+  \item PO assigning each group to specific issues was a good way of knowing which issues were important
+  \item Slack was a nice and easy way of communicating
+\end{itemize}
+
+Our group was in agreement with the the comments to the process, we only felt some small irritation with the timing of the standup meetings, as it was sometimes in the middle of our work. 
+However, this is not easy to avoid as each group did not work on the exact same time schedule.
+
+And, the most agreed upon suggestions for improvements are listed below.
+\begin{itemize}
+  \item Make a naming convention for the branches on the GitHub repositories
+  \item Groups should make clear time estimates for issues
+  \item Notify the other groups if the whole group or large parts of it goes on vacation
+  \item Be available on slack from 9-15 o' clock
+  \item More transparency of what version the deployed backend is running
+  \item Create a single location to get relevant process documents are, such as the result of these retrospectives
+  \item Server work was very isolated and hard to know when changes occured
+  \item Issues should be made in a story format, not just a simple titel
+  \item Change party-committe's name/function to not only focus on parties, but also other social events e.g. Hackathons
+  \item PO group should decides what the product should be, but the developer decides how it is implemented
+  \item Pull request reviews were used to enforce the reviewers way of implementing, this is not how it should be done
+\end{itemize}
+
+As for the suggestions there were just a few were we did not feel it was necessary to make such a change.
+The idea of making the issues in an actual story format might make it more clear, but it may also waste time compared to simply asking for a quick clarification from the PO group. 
+
+The suggestion to make the server changes less isolated was something that we could relate to.
+Most of the focus during the entire project was on the weekplanner and much less so on anything else.
+So a way to make the other parts of the Giraf project more noticeable would be of great benefit to the project.
+We would suggest that the process group to make a process for the server, and possibly the API part, as the weekplanner is dependant on these.
+
+There was also the issue of the developers not knowning what version the API's on the server were running.
+We were of the belief that the server API's were there to simply test it before it was deployed to the production environment, not for development of the app.
+For the development of the app we believed it to be common practice to run the API locally on ones own PC.
+
+We were not directly against the transparency for what version the server API was running, we just believed it to be unnecessary.
+Instead for development we would recommend running the API locally.
+This way the developer has full control of what version of the API they are using and is also able to see the logs of the API.
+Now, if there were changes to the API and it was able to run locally it would be tested further by deploying it to the test API and testing if it is also able to run on the server.
+Once this had been verified it would be deployed to the development API and tested with some more trafic.
+The last step would be to deploy it to the production API, which is the one that the end users will be using.
