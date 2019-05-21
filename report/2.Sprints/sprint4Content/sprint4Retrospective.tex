@@ -21,12 +21,12 @@ And, the most agreed upon suggestions for improvements are listed below.
   \item Make a naming convention for the branches on the GitHub repositories
   \item Groups should make clear time estimates for issues
   \item Notify the other groups if the whole group or large parts of it goes on vacation
-  \item Be available on slack from 9-15 o' clock
+  \item Be available on slack from 9-15 O' clock
   \item More transparency of what version the deployed backend is running
   \item Create a single location to get relevant process documents are, such as the result of these retrospectives
-  \item Server work was very isolated and hard to know when changes occured
-  \item Issues should be made in a story format, not just a simple titel
-  \item Change party-committe's name/function to not only focus on parties, but also other social events e.g. Hackathons
+  \item Server work was very isolated and hard to know when changes occurred
+  \item Issues should be made in a story format, not just a simple title
+  \item Change party-committee's name/function to not only focus on parties, but also other social events e.g. Hackathons
   \item PO group should decides what the product should be, but the developer decides how it is implemented
   \item Pull request reviews were used to enforce the reviewers way of implementing, this is not how it should be done
 \end{itemize}
@@ -37,9 +37,9 @@ The idea of making the issues in an actual story format might make it more clear
 The suggestion to make the server changes less isolated was something that we could relate to.
 Most of the focus during the entire project was on the weekplanner and much less so on anything else.
 So a way to make the other parts of the Giraf project more noticeable would be of great benefit to the project.
-We would suggest that the process group to make a process for the server, and possibly the API part, as the weekplanner is dependant on these.
+We would suggest that the process group to make a deployment process for the server, and possibly the API part, as the weekplanner is dependant on these.
 
-There was also the issue of the developers not knowning what version the API's on the server were running.
+There was also the issue of the developers not knowing what version the API's on the server were running.
 We were of the belief that the server API's were there to simply test it before it was deployed to the production environment, not for development of the app.
 For the development of the app we believed it to be common practice to run the API locally on ones own PC.
 
@@ -47,5 +47,11 @@ We were not directly against the transparency for what version the server API wa
 Instead for development we would recommend running the API locally.
 This way the developer has full control of what version of the API they are using and is also able to see the logs of the API.
 Now, if there were changes to the API and it was able to run locally it would be tested further by deploying it to the test API and testing if it is also able to run on the server.
-Once this had been verified it would be deployed to the development API and tested with some more trafic.
+Once this had been verified it would be deployed to the development API and tested with some more traffic.
 The last step would be to deploy it to the production API, which is the one that the end users will be using.
+
+Lastly the idea that the pull request reviewers were enforcing certain ways of implementing something seems to be an odd idea to us.
+There is a set standard for the code style and it is also the reviewers job to bring light to a potentially better implementation, if they know one.
+If the creator of the pull request disagrees with the reviewers suggestions, they are more than allowed to discuss it. 
+The reviewer may not know everything and the same goes for the creator of the pull request.
+The discussion should then lead to better code.
