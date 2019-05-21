@@ -1,5 +1,5 @@
 \section{Implementation}
-As described in \autoref{SEC:Sprint4Issues} we were to work on \href{https://github.com/aau-giraf/weekplanner/issues/121}{issue \texttt{\#}121} where the app bare should be reduced in functionality when in "citizen mode". 
+As described in \autoref{SEC:Sprint4Issues} we were to work on \href{https://github.com/aau-giraf/weekplanner/issues/121}{issue \texttt{\#}121} where the app bar should be reduced in functionality when in "citizen mode". 
 Throughout this sprint other, non GitHub, issues has also been solved.
 In the following section the implementation and other issues will be discussed and elaborated upon.
 
@@ -7,8 +7,8 @@ In the following section the implementation and other issues will be discussed a
 We were assigned to the issue of minimizing the functionality of the app bar when in citizen mode. 
 This was deemed as an easy functionality to fix, hence we only assigned one group member to implement it. 
 
-The original plan was to change the app bar then changing to citizen mode by instantiating a new app bar with the reduced buttons. 
-However, since another group had changed the way the app bar works, it was quite hard for us to actually implement it in this order.
+The original plan was to change the app bar when changing to citizen mode by instantiating a new app bar with the reduced buttons. 
+However, since another group had changed the way the app bar works, it was quite hard for us to actually implement it.
 This shift in the implementation meant that none of us were aware of an implementation that could solve the issue. 
 
 Once aware of the issue, we contacted the PO group for assistance. 
@@ -16,7 +16,7 @@ We were then unassigned from the issue and the group who had written the new app
 Further information regarding the implementation can be seen in the \href{https://github.com/aau-giraf/weekplanner/pull/262}{GitHub Pull Request}.
 
 \subsection{Database migration}
-During the sprint one of the groups had implemented an activity timer that would enable a citizen to set a amount of time for an activity which was an requirement from the costumers.
+During the sprint one of the groups had implemented an activity timer that would enable a citizen to set an amount of time for an activity which was a requirement from the costumers.
 This meant updating the model of an activity to facilitate the timer. 
 
 As a consequence of the migration to the Docker Swarm the database is no longer publicly aviable to the internet and hence the dotnet entity framework can not perform a database migration from the developers own computer, since they are not connected to the same network. 
@@ -27,7 +27,7 @@ This meant that each time the a new Docker Image is built, a version with both b
 
 \figur{1}{images/DockerImagesBothSDKandHosting.png}{Image showing the current Docker Images from \href{https://cloud.docker.com/u/giraf/repository/docker/giraf/web-api/tags}{Docker Hub}}{FIG:DockerHubImagesOverview}
 
-This means that once an migration is needed in a new version of the API, both Docker Images needs to be created and pushed to Docker Hub. 
+This means that once a migration is needed in a new version of the API, both Docker Images needs to be created and pushed to Docker Hub. 
 Once on Docker Hub the services on the Docker Swarm needs to be updated with the following command:
 
 \lstinline$docker service update Giraf_API_TEST --image=giraf/web-api:test-1-sdk$
