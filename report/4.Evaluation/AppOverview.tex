@@ -1,0 +1,32 @@
+\section{App status}
+The main focus of the Giraf project this year has been to make the weekplanner app more stable and user friendly.
+There was not any true focus on getting more features for the weekplanner or adding in more apps.
+During this years development on the project we have rewritten the entire frontend to another framework and language.
+The backend has only receive a small amount of attention, so it has only gotten fixes and expansions that were considered necessary.
+
+\subsection{Frontend}
+Weekplanner is now written in Dart using the framework Flutter.
+Thanks to this, the weekplanner will now be able to run at native speeds on both Android and IOS, all while only having one codebase.
+The codebase is made to follow the BLoC pattern, as described in \autoref{}, which we use to separate the responsibility between business logic and the UI of the app, more on this can be found in \autoref{}. 
+For the codestyle the flutter analyze functionality was used to implement a linter on Azure that would prevent any code that did not follow the standard codestyle to be merged into the app codebase.
+
+According to the PO group the app is also in a state where some of the customers recommended releasing it for parents to use.
+They believed that it was, so far, the best version of the weekplanner they have had yet.
+These statements were from the customers who had been involved in the usability tests that they had held late in the last sprint.
+
+As a bonus, thanks to Flutter, we are now also able to run the app on IOS.
+However, we were not able to get the Apple developer license, to publish to the app store in time, to release it before the deadline.
+
+\todo{Perhaps make a flowchart of the app usage, to demonstrate how it works?}
+
+\subsection{Backend}
+Giraf's backend remains at large the same; Moving the pictograms from the database was the largest change to the way the backend worked, which was described in \autoref{}.
+The other changes to the backend were mainly the tests that needed to be updated to fit the new way of handling pictograms, this update of the tests was described in \autoref{}.
+Other changes were, some new endpoints that either made optimizations, in amount of API calls and/or data transfer; or were needed for a feature that the customers had requested.
+
+The API client, that the weekplanner uses, has also been extracted from the "web-api" repository, to its own repository; "api\_client".
+The reasoning behind this, was that any future apps that were developed should be able to use the same backend.
+
+The tests that the API has on it currently is not of the best quality, so they could use an update, but it is not necessarily a priority.
+
+
