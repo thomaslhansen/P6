@@ -1,0 +1,41 @@
+\section{Mobile Application}
+The main focus of the Giraf project this year has been to make the weekplanner app more stable and user friendly.
+There was not any true focus on getting more features for the weekplanner or adding in more apps.
+During this year's development on the project, we have rewritten the entire frontend to another framework and language.
+The backend has only received a small amount of attention, therefore it has only received fixes and expansions that were considered necessary.
+
+\subsection{Frontend}
+Weekplanner is now written in Dart using the Flutter framework.
+Thanks to this, the Weekplanner will now be able to run at native speeds on both Android and IOS, all while only having one codebase.
+The codebase is made to follow the BLoC pattern, as described in \autoref{SEC:Flutter}, which we use to separate the responsibility between business logic and the user interface of the app. 
+For the codestyle, the Flutter build-in analyze functionality was used to implement a linter on Azure. 
+This would prevent any code that did not follow the standard codestyle from being merged into the application codebase.
+
+According to the PO group, the app is also in a state where some of the customers recommended releasing it for parents to use.
+They believed that it was, so far, the best version of Weekplanner they have had yet.
+These statements were from the customers who had been involved in the usability tests held late in the last sprint.
+
+As a bonus, thanks to Flutter, we are now also able to compile the app to IOS.
+However, we were not able to obtain an Apple developer license, to publish to the App Store in time, to release it before the deadline.
+
+The final version of the app can be found on \href{https://github.com/aau-giraf/weekplanner/tree/2019-Final}{GitHub}.
+
+
+\subsection{Backend}
+Giraf's backend remains at large the same; moving the pictograms from the database was the largest change to the way the backend worked, which was described in \autoref{CollabAPIUpdate}.
+The other changes to the backend were mainly the tests that needed to be updated to fit the new way of handling pictograms - this update of the tests was described in \autoref{SEC:workshopAPIcollab}.
+Other changes were some new endpoints that either made optimizations in amount of API calls and/or data transfer, or were needed for a feature that the customers had requested.
+
+The API client used by the Weekplanner has also been extracted from the "\href{https://github.com/aau-giraf/web-api/tree/2019S4R1}{web-api}" repository to its own repository: "\href{https://github.com/aau-giraf/api_client/tree/2019S4R1}{api\_client}".
+The reasoning behind this was that any future apps that were developed should be able to use the same backend.
+
+Currently the state of the tests in the API is not of the best quality, so they should be updated, however this is not necessarily a priority.
+This was also shortly mentioned in \autoref{SEC:workshopAPIcollab}.
+
+The API client is, in some aspects, not up to date compared to the API, as there were some changes to the API right before release that was not made usable through the API client.
+The API also some legacy endpoints that are not relevant anymore, such as the endpoint to get the what branch the API was built from, as this endpoint was no longer usable with Docker.
+
+
+The final version of the API can be found on \href{https://github.com/aau-giraf/web-api/tree/2019S4R1}{GitHub} and the final state of the API client can be found on \href{https://github.com/aau-giraf/api_client/tree/2019S4R1}{GitHub}.
+
+
