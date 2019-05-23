@@ -1,12 +1,13 @@
 \subsection{Server}\label{SEC:S2ServerWork}
-During "Sprint 2" the project group was tasked with ordering new servers from ITS, as well as investigating how the old servers were configured.
+During sprint two the project group was tasked with ordering new servers from ITS, as well as investigating how the old servers were configured.
 In the following sections we will describe our work done on these tasks, and show how new issues emerged afterwards.
 
 \subsubsection{Server requisition}
 During "Sprint 1" the server meta-group had established how the old server architecture was build.
 Based on those findings, the server group made a suggestion for a new server layout, and it was simultaneously deemed easier to request some new servers and migrate the existing data from the old servers to the new ones, rather than to clean up the original mess.
 
-We made a request to ITS at AAU for new servers with the promise of shutting down the old servers once the new system is up and running. The original server layout was as follows:
+We made a request to ITS at AAU for new servers with the promise of shutting down the old servers once the new system is up and running. 
+The original server layout was as follows:
 
 \begin{table}[H]
 
@@ -86,7 +87,8 @@ The \textbf{Database} does naturally move into a Docker Swarm environment but do
 
 One huge problem with the old setup were that everything is open to the public internet and does thus make it a huge target for hackers.
 On the new setup this has been mitigated by using a reverse proxy server that will pass the traffic intended for the different services.
-This proxy setup has been implemented in a hurry and should be updated later as the rest of the services are added to the Docker Swarm. \footnote{This implementation was updated in the next sprint(see \autoref{SEC:Sprint3Implementation}).}
+This proxy setup has been implemented in a hurry and should be updated later as the rest of the services are added to the Docker Swarm. 
+\footnote{This implementation was updated in the next sprint(see \autoref{SEC:Sprint3Implementation}).}
 
 \subsection{Open issues for future sprints}
 After the initial setup of the servers, several new issues were created on the project GitHub.
