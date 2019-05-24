@@ -8,7 +8,7 @@ The backend has only received a small amount of attention, therefore it has only
 Weekplanner is now written in Dart using the Flutter framework.
 Thanks to this, the Weekplanner will now be able to run at native speeds on both Android and IOS, all while only having one codebase.
 The codebase is made to follow the BLoC pattern, as described in \autoref{SEC:Flutter}, which we use to separate the responsibility between business logic and the user interface of the app. 
-For the codestyle, the Flutter build-in analyze functionality was used to implement a linter on Azure. 
+For the codestyle, the Flutter build in analyze functionality was used to implement a linter on Azure. 
 This would prevent any code that did not follow the standard codestyle from being merged into the application codebase.
 
 According to the PO group, the app is also in a state where some of the customers recommended releasing it for parents to use.
@@ -26,7 +26,7 @@ Giraf's backend remains at large the same; moving the pictograms from the databa
 The other changes to the backend were mainly the tests that needed to be updated to fit the new way of handling pictograms - this update of the tests was described in \autoref{SEC:workshopAPIcollab}.
 Other changes were some new endpoints that either made optimizations in amount of API calls and/or data transfer, or were needed for a feature that the customers had requested.
 
-The API client used by the Weekplanner has also been extracted from the "\href{https://github.com/aau-giraf/web-api/tree/2019S4R1}{web-api}" repository to its own repository: "\href{https://github.com/aau-giraf/api_client/tree/2019S4R1}{api\_client}".
+The API client used by the Weekplanner has also been extracted from the "\href{https://github.com/aau-giraf/web-api/tree/2019S4R1}{WEB-API}" repository to its own repository: "\href{https://github.com/aau-giraf/api_client/tree/2019S4R1}{api\_client}".
 The reasoning behind this was that any future apps that were developed should be able to use the same backend.
 
 Currently the state of the tests in the API is not of the best quality, so they should be updated, however this is not necessarily a priority.
