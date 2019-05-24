@@ -31,7 +31,7 @@ DB:                          # The DB service will be changed to use the product
 The primary issue with the old servers was that the database was accessible from the public internet.
 In order to mitigate this issue the new Docker Swarm has two different networks; one for the frontend and one for the backend.
 The backend network is attached to both the API and the database services which means that in order to reach the database from public internet all traffic must pass through the API.
-Furthermore, Docker allows us to specify what action should be taken once the service experiences a failure and are unable to recover -- in this case the service should simply reboot.
+Furthermore, Docker allows us to specify what action should be taken once the service experiences a failure and are unable to recover - in this case the service should simply reboot.
 
 Once the service had been started, the only thing left was to create a dump from the existing MySQL server.
 For this the tool \lstinline$mysqldump$ was used to dump the database to a file.
