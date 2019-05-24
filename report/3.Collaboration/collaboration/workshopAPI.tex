@@ -13,7 +13,62 @@ This was achieved by ensuring that each test would generate all test images.
 As each test was now independent, they could no longer fail if a different test had modified the test image.
 
 Additionally, it was discovered that some of the existing unit tests were of lesser quality, which should probably be addressed in the future if code quality of the backend is of priority.
-\todo{Note from collab document: Should perhaps be addressed as issue or in the report}
+
+\begin{lstlisting}[label={snip:OldTestBeforeUpdate}, caption={The old test after images are served from disk}, captionpos=b, language=CSharp] 
+[Fact]
+public void ReadRawPictogramImage_GetPublic_Success()
+{
+try
+{
+    var pc = initializeTest();
+    testContext.MockUserManager.MockLoginAsUser(_testContext.MockUsers[ADMIN_DEP_ONE]);
+    var res = pc.ReadRawPictogramImage(DEP_ONE_PROTECTED_PICTOGRAM);
+
+    Assert.True(res.IsCompleted);
+    Assert.IsType<FileContentResult>(res.Result);
+
+    var fileContent = ((FileContentResult)res.Result);
+
+    // Get the expected image an convert to eight bit int array so we can compare with actual returned image
+    Assert.Equal("image/png", fileContent.ContentType);
+    var testImageTo8BitIntArray = Convert.FromBase64String(System.Text.Encoding.UTF8.GetString(_testContext
+    .MockPictograms
+    .FirstOrDefault(mp => mp.Id == DEP_ONE_PROTECTED_PICTOGRAM)?.Image));
+
+    // Check that we read the correct image
+    Assert.Equal(testImageTo8BitIntArray, fileContent.FileContents);
+}
+catch(Exception)
+{
+    Assert.True(false);
+}
+\end{lstlisting}
+
+On \autoref{snip:NewUpdatedTest} and \autoref{snip:OldTestBeforeUpdate} the old unit test and the new is seen. 
+The two test do assert the same issue, however the new one no longer uses pictograms stored inside the database.
+
+\begin{lstlisting}[label={snip:NewUpdatedTest}, caption={The updated test after images are served from disk)}, captionpos=b, language=CSharp] 
+[Fact]
+public void ReadRawPictogramImage_GetPublic_Success()
+{
+    var pc = initializeTest();
+    testContext.MockUserManager.MockLoginAsUser(_testContext.MockUsers[ADMIN_DEP_ONE]);
+    var res = pc.ReadRawPictogramImage(DEP_ONE_PROTECTED_PICTOGRAM);
+
+    Assert.True(res.IsCompleted);
+    Assert.IsType<PhysicalFileResult>(res.Result);
+
+    var fileContent = ((PhysicalFileResult)res.Result);
+
+    // Get the expected image an convert to eight bit int array so we can compare with actual returned image
+    Assert.Equal("image/png", fileContent.ContentType);
+            
+    var expectedImage = _loadPictogramFromDisk(DEP_ONE_PROTECTED_PICTOGRAM);
+
+    // Check that we read the correct image
+    Assert.Equal(expectedImage, File.ReadAllBytes(fileContent.FileName));      
+}
+\end{lstlisting}
 
 The issues \href{https://github.com/aau-giraf/web-api/issues/18}{\texttt{\#}18}, \href{https://github.com/aau-giraf/web-api/issues/17}{\texttt{\#17}} and \href{https://github.com/aau-giraf/web-api/issues/15}{\texttt{\#}15} were identified and initiated during the workshop.
 Issue \href{https://github.com/aau-giraf/web-api/issues/15}{\texttt{\#}15} revolved around the warnings that were thrown when building the REST API.
