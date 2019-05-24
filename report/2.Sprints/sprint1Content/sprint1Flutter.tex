@@ -15,7 +15,7 @@ Now a final meeting was held to discuss how the process should be handled and wh
 It was decided to handle the switch by letting a group of volunteers dedicate the weekend to write the core part of the frontend into the new framework; Flutter. 
 This group of volunteers were also tasked with making some simple first introductory issues for the rest of the Giraf organization to help make them more familiar with the language.
 
-\subsection{Flutter}
+\subsection{Flutter} \label{SEC:Flutter}
 Instead of Xamarin, Flutter was chosen as the alternative framework.
 This was chosen by the Frontend meta group and was based on the assumption that a newer framework that was well documented would be fairly easy for all groups to adapt to. 
 Most groups also liked the new framework since designing in the framework is much similar to regular web development. 
@@ -26,16 +26,19 @@ Streams, reactive programming and the BLoC pattern.
 
 \subsubsection{Streams}
 In Flutter streams are used to convey data.
-Unlike traditional ways of updating variables, e.g. \lstinline{a = b + c;} from a traditional imperative language, where \lstinline{a} would be updated at the point in time that line of code is executed, and if changes occurred to \lstinline{b} or \lstinline{c} at a later point in time, it would not necessarily have any direct effect on the variable \lstinline{a}.
+Unlike traditional ways of updating variables, e.g. \lstinline$a = b + c;$ from a traditional imperative language, where \lstinline$a$ would be updated at the point in time that line of code is executed, and if changes occurred to \lstinline{b} or \lstinline{c} at a later point in time, it would not necessarily have any direct effect on the variable \lstinline$a$.
 Streams allow us to continuously convey data, and pretty much anything can be conveyed by these streams.
 Streams can be thought of as having a sender and one or multiple subscribers.
 The streams send out data on which anyone can then listen in by subscribing to the feed the stream sends out.
-If we again consider the example above, the variable \lstinline{a} can now be updated automatically as changes occur to \lstinline{b} or \lstinline{c} \cite{Flutterintro}.
+If we again consider the example above, the variable \lstinline$a$ can now be updated automatically as changes occur to \lstinline$b$ or \lstinline$c$ \cite{Flutterintro}.
 \subsubsection{Reactive Programming}
 Reactive Programming is a programming paradigm capable of handling asynchronous data streams. 
-In reactive programming, anything can be a stream; user input, variables and various data structures are all streams. The use of streams in this way, gives us the ability to abstract out code so it becomes easier to focus on the business logic (instead of focusing on implementation details), likely resulting in a cleaner codebase.
+In reactive programming, anything can be a stream; user input, variables and various data structures are all streams. 
+The use of streams in this way, gives us the ability to abstract out code so it becomes easier to focus on the business logic (instead of focusing on implementation details), likely resulting in a cleaner codebase.
 In reality this means we are able to create UI widgets, that does not need to know anything about the functionality it is executing. 
-When a widget sends data to a stream, it does not need to know anything about when or where that information will be used. The only thing it needs to concern itself with is the sending and listening to data streams. The business logic can then be executed elsewhere \cite{ReactiveProg}.
+When a widget sends data to a stream, it does not need to know anything about when or where that information will be used. 
+The only thing it needs to concern itself with is the sending and listening to data streams. 
+The business logic can then be executed elsewhere \cite{ReactiveProg}.
 \subsubsection{BLoC}
 Business Logic Component (BLoC) pattern, not to be confused with blocks, is a pattern that Google designed to separate the business logic of an application from the user interface.
 The BLoC pattern enforces that the business logic is moved into several BLoCs, and by doing so enforces that widgets or UI components are only concerned with UI things, and absolutely oblivious to business logic. 

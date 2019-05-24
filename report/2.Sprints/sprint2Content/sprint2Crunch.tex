@@ -6,7 +6,7 @@ The rest of the crunch was on the release day where the focus was on fixing bugs
 We worked on fixing a bug where the logout button did not redirect the user to the login screen after logging out successfully.
 
 \subsection{Implementation}
-The original handler for taking a user back to the login screen can be seen in \autoref{snip:BeforeLogoutToLoginScreenBug}, where it simply makes use of a ternary operator to check if the user is logged in or not and depending on the result sends to user to the desired screen.
+The original handler for taking a user back to the login screen can be seen in \autoref{snip:BeforeLogoutToLoginScreenBug}, where it simply makes use of a ternary operator to check if the user is logged in or not and depending on the result sends the user to the desired screen.
 
 \begin{lstlisting}[label={snip:BeforeLogoutToLoginScreenBug}, caption={The \_runApp function before the bug fix}, captionpos=b, language=CSharp]
 void _runApp() {

@@ -1,0 +1,19 @@
+\section{Documentation Overview}\label{SEC:DocumentationOverview}
+During the hand over of the project from the last semester, we got access to the Phabricator and GitLab system. 
+Phabricator is project management system that enables developer teams to share both code and documentation. 
+Phabricator also has some build in code review functions and allows for communication via chats. 
+
+The earlier semester however had chosen to host the Phabricator server along side the production API's and database.
+
+The old semester also had chosen to use GitLab on a selfhosted server, again also along side the production services. 
+This meant that the added responsibility on the servers made the entire project unsafe and it has hence quickly decided that the GitLab and Phabricator should be migrated onto GitHub. 
+
+This migration means that all documentation is now centralized on the GitHub repository \href{https://github.com/aau-giraf/wiki}{Wiki}. 
+By hosting it on GitHub the repository can be transformed into an webpage more suitable for public consumption.
+The GitHub webpage can be seen on this \href{https://aau-giraf.github.io/wiki/}{link}.
+
+Once all relevant information was migrated from Phabricator to GitHub, the Phabricator server was shut down. 
+Before the server was removed/deleted by ITS, a backup of both the web server and database was created and stored elsewhere.
+
+By migrating both the GitLab and Phabricator to GitHub the amount of responsibilities of the system was reduced. 
+This meant that the focus of the project could be aimed at the actual development of the product and not on the tools needed.

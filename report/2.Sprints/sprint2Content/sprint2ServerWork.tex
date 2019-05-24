@@ -1,12 +1,13 @@
 \subsection{Server}\label{SEC:S2ServerWork}
-During "Sprint 2" the project group was tasked with ordering new servers from ITS, as well as investigating how the old servers were configured.
+During sprint two the project group was tasked with ordering new servers from ITS, as well as investigating how the old servers were configured.
 In the following sections we will describe our work done on these tasks, and show how new issues emerged afterwards.
 
 \subsubsection{Server requisition}
-During "Sprint 1" the server meta-group had established how the old server architecture was build.
+During "Sprint 1" the server meta group had established how the old server architecture was build.
 Based on those findings, the server group made a suggestion for a new server layout, and it was simultaneously deemed easier to request some new servers and migrate the existing data from the old servers to the new ones, rather than to clean up the original mess.
 
-We made a request to ITS at AAU for new servers with the promise of shutting down the old servers once the new system is up and running. The original server layout was as follows:
+We made a request to ITS at AAU for new servers with the promise of shutting down the old servers once the new system is up and running. 
+The original server layout was as follows:
 
 \begin{table}[H]
 
@@ -40,7 +41,7 @@ Node03 		& 172.19.10.34	& 2 GB	& 1 Core	& 24 GB		& Ubuntu Server 18.04.2		\\ \hl
 \caption{New servers acquired at the ITS}
 \end{table}
 
-One of the problems experienced by the server meta-group was the constant pain of organizing the user account and passwords for accessing and managing all the servers.
+One of the problems experienced by the server meta group was the constant pain of organizing the user account and passwords for accessing and managing all the servers.
 In order to mitigate these problems ITS suggested that the servers could be setup using Microsoft Active Directory(AD) authentication, i.e. each of the server group members can sign in to the servers using their student email and password as credentials.
 This makes it easier for the following semesters to take over the project since they could simply be added to the AD user group by ITS.
 
@@ -86,7 +87,8 @@ The \textbf{Database} does naturally move into a Docker Swarm environment but do
 
 One huge problem with the old setup were that everything is open to the public internet and does thus make it a huge target for hackers.
 On the new setup this has been mitigated by using a reverse proxy server that will pass the traffic intended for the different services.
-This proxy setup has been implemented in a hurry and should be updated later as the rest of the services are added to the Docker Swarm. \footnote{This implementation was updated in the next sprint(see \autoref{SEC:Sprint3Implementation}).}
+This proxy setup has been implemented in a hurry and should be updated later as the rest of the services are added to the Docker Swarm. 
+\footnote{This implementation was updated in the next sprint(see \autoref{SEC:Sprint3Implementation}).}
 
 \subsection{Open issues for future sprints}
 After the initial setup of the servers, several new issues were created on the project GitHub.
