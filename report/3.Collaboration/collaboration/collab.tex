@@ -4,7 +4,7 @@ The following section describes a collaboration between group SW602F19, SW609F19
 With both a new ability for the frontend to search for Pictograms and a monitoring tool for the servers, we noticed transfers of several gigabytes between the database and the backend every time the frontend searched. 
 Performing several searches in a short timespan was guaranteed to crash the backend or the database.
 
-A more in-depth inspection found that the database stored all the pictogram-images, which requires the database to extract vast amounts of binary-image-data for each pictogram related query. 
+A more in depth inspection found that the database stored all the pictogram images, which requires the database to extract vast amounts of binary-image-data for each pictogram related query. 
 Furthermore, the API ensured that all pictograms loaded should be Base64 encoded on load, which meant that all pictograms traveling through the API, had to go through relatively large processing.
 
 We decided to extract the pictograms from the database and instead store them as files on disk, which relieved the database of the large transfers. 

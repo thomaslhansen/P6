@@ -19,10 +19,10 @@ Further information regarding the implementation can be seen in the \href{https:
 During the sprint one of the groups had implemented an activity timer that would enable a citizen to set an amount of time for an activity which was a requirement from the costumers.
 This meant updating the model of an activity to facilitate the timer. 
 
-As a consequence of the migration to the Docker Swarm the database is no longer publicly aviable to the internet and hence the dotnet entity framework can not perform a database migration from the developers own computer, since they are not connected to the same network. 
+As a consequence of the migration to the Docker Swarm the database is no longer publicly available to the internet and hence the Dotnet entity framework can not perform a database migration from the developers own computer, since they are not connected to the same network. 
 As an effort to minimize the Docker Images used to host the API the base images used is the aspnet core image from Microsoft which does not contain any of the developer tools needed to preform a migration. 
 
-Hence a new Docker Images was created with the dotnet sdk base images, which does contain the entity framework tools needed, but with a much larger image size. 
+Hence a new Docker Images was created with the Dotnet SDK base images, which does contain the entity framework tools needed, but with a much larger image size. 
 This meant that each time the a new Docker Image is built, a version with both base images should be created and pushed to Docker Hub, as seen on \autoref{FIG:DockerHubImagesOverview}. 
 
 \figur{1}{images/DockerImagesBothSDKandHosting.png}{Image showing the current Docker Images from \href{https://cloud.docker.com/u/giraf/repository/docker/giraf/web-api/tags}{Docker Hub}}{FIG:DockerHubImagesOverview}
@@ -33,9 +33,9 @@ Once on Docker Hub the services on the Docker Swarm needs to be updated with the
 \lstinline$docker service update Giraf_API_TEST --image=giraf/web-api:test-1-sdk$
 
 This will update the API to use the new API, which will then serve the API for the users.
-Once the API is running one has to execute the \lstinline$dotnet ef database update$ command to make the migration to the database.
+Once the WEB-API is running one has to execute the \lstinline$dotnet ef database update$ command to make the migration to the database.
 
-Once the migration has been made, the same update command can be used to change from a SDK version of the API to the aspnet version that is more suitable for long term hosting.
+Once the migration has been made, the same update command can be used to change from a SDK version of the WEB-API to the ASP version that is more suitable for long term hosting.
 
 
 

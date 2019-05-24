@@ -4,7 +4,7 @@ In the following section the work done, and some of the considerations made duri
 
 \subsection{Change to guardian mode} \label{changeToGuardianIconImpl}
 As first described in \autoref{sprint2planstories} we were to make an icon that would act as a button in the appbar that would allow a guardian to switch the app to guardian mode.
-We were also given an icon to use for this task, so we added a button to the appbar in-line with the other currently available buttons, as can be seen on \autoref{FIG:GirafAppBar}.
+We were also given an icon to use for this task, so we added a button to the appbar inline with the other currently available buttons, as can be seen on \autoref{FIG:GirafAppBar}.
 
 \figur{1}{images/GirafAppBar.png}{Screenshot of the Giraf Appbar}{FIG:GirafAppBar}
 
@@ -82,7 +82,7 @@ IconButton(
 
 %attempted rewrite of commented paragraph below
 The implementation assumes that the guardian that first logged in is also the one that will change to guardian mode, so that when attempting to change to guardian mode only the password is needed.
-Even though the real-world usage of this functionality might deviate from the assumption, this is how the PO-group specified the issue.
+Even though the real world usage of this functionality might deviate from the assumption, this is how the PO group specified the issue.
 This was achieved through saving the username used when first logging in, and simply retrieve and display it when needed.
 This can be seen in the parameters given to the 'RichText' on line $11$ in \autoref{changeToGuardianDialogBox}, where one of the children to this is a 'TextSpan' where we use the username that was used at login and ensure that the username is bold to emphasize it.
 

@@ -8,13 +8,13 @@ Additionally the user would also not be able to switch to guardian mode with the
 This meant that a new issue could be created; \href{https://github.com/aau-giraf/weekplanner/issues/253}{Issue \texttt{\#}253}.
 This issue was fixed during the sprint crunch by another group and was hence fixed in the release of the app.
 
-Throughout the sprint crunch our group was primarily collaborating with group 11 on fixing a bug in the web API (\href{https://github.com/aau-giraf/web-api/issues/26}{Issue \texttt{\#}26}).
+Throughout the sprint crunch our group was primarily collaborating with group 11 on fixing a bug in the WEB-API (\href{https://github.com/aau-giraf/web-api/issues/26}{Issue \texttt{\#}26}).
 The issue was originally related to an inconsistency between the way our database and app handles date/time formats. 
 Date/times was added to the pictograms in order to keep track of when they were last edited, this was a requirement from the PO group. 
-This issue was fixed by converting all date/times to universal time on the API. 
+This issue was fixed by converting all date/times to universal time on the WEB-API. 
 
 However, while fixing the issue another bug was discovered.
-The implementation of uploading new pictograms via the API was constructed with a redundant file in case something went wrong while uploading the file. 
+The implementation of uploading new pictograms via the WEB-API was constructed with a redundant file in case something went wrong while uploading the file. 
 This was accomplished by creating a temporary file with the new pictogram, and generating a backup of the original pictogram. 
 There are plenty of functions for moving files around in the operating system in C\texttt{\#} however since we use Docker to host the API, these could not be used. 
 
