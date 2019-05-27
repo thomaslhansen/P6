@@ -1,12 +1,12 @@
 \section{Implementation}
 Before we began on working on the implementation we used some time trying to set up the compiler for Xamarin, to first ensure that we were able to develop in Xamarin.
 However, we encountered some issues.
-About a third of the Giraf organization were on a Linux based OS and unable to compile; those that were able to compile could either not sign the apk file, or were unable to install the app on any android device with the apk file.
+About a third of the Giraf organization were on a Linux based operating system and unable to compile; those that were able to compile could either not sign the apk file, or were unable to install the app on any android device with the apk file.
 So to resolve this issue the frontend meta group had an emergency meeting, where the issue would be discussed.
 
-\subsection{Xamarin issue}
+\subsection{Xamarin Issue}
 The frontend of the app had been switched to the Xamarin framework, and this was not officially supported for Linux, and there were no plans to make it officially supported \cite{xamarinSupport} \cite{xamarinSupport2}.
-So to mitigate this for us and future groups we considered if it was a viable and desirable option to switch to another framework that was supported on all OS's, such that we would not have to use a virtual machine with Microsoft Windows or Mac OS to compile and test any changes, as it would not be an optimal solution.
+So to mitigate this for us and future groups we considered if it was a viable and desirable option to switch to another framework that was supported on all operating systems, such that we would not have to use a virtual machine with Microsoft Windows or Mac OS to compile and test any changes, as it would not be an optimal solution.
 
 First it was considered whether we should switch to another framework at all.
 For this discussion the frontend meta group held a meeting, where all were invited to listen in, as this was a big decision to be made.
@@ -25,7 +25,7 @@ When using Flutter three main ideas will have to be understood:
 Streams, reactive programming and the BLoC pattern.
 
 \subsubsection{Streams}
-In Flutter streams are used to convey data.
+In Flutter, streams are used to convey data.
 Unlike traditional ways of updating variables, e.g. \lstinline$a = b + c;$ from a traditional imperative language, where \lstinline$a$ would be updated at the point in time that line of code is executed, and if changes occurred to \lstinline{b} or \lstinline{c} at a later point in time, it would not necessarily have any direct effect on the variable \lstinline$a$.
 Streams allow us to continuously convey data, and pretty much anything can be conveyed by these streams.
 Streams can be thought of as having a sender and one or multiple subscribers.
