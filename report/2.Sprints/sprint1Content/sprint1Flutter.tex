@@ -1,0 +1,48 @@
+\section{Implementation}
+Before we began on working on the implementation we used some time trying to set up the compiler for Xamarin, to first ensure that we were able to develop in Xamarin.
+However, we encountered some issues.
+About a third of the Giraf organization were on a Linux based operating system and unable to compile; those that were able to compile could either not sign the apk file, or were unable to install the app on any android device with the apk file.
+So to resolve this issue the frontend meta group had an emergency meeting, where the issue would be discussed.
+
+\subsection{Xamarin Issue}
+The frontend of the app had been switched to the Xamarin framework, and this was not officially supported for Linux, and there were no plans to make it officially supported \cite{xamarinSupport} \cite{xamarinSupport2}.
+So to mitigate this for us and future groups we considered if it was a viable and desirable option to switch to another framework that was supported on all operating systems, such that we would not have to use a virtual machine with Microsoft Windows or Mac OS to compile and test any changes, as it would not be an optimal solution.
+
+First it was considered whether we should switch to another framework at all.
+For this discussion the frontend meta group held a meeting, where all were invited to listen in, as this was a big decision to be made.
+The meeting resulted in the decision to switch to a new framework, but before the decision was final those attending the meeting were to discuss it with their respective group and perhaps get some input that was not brought up during the meeting.
+Now a final meeting was held to discuss how the process should be handled and what the new framework should be.
+It was decided to handle the switch by letting a group of volunteers dedicate a weekend to write the core part of the frontend into the new framework; Flutter. 
+This group of volunteers were also tasked with making some simple first introductory issues for the rest of the Giraf organization to help make them more familiar with the language.
+
+\subsection{Flutter} \label{SEC:Flutter}
+Instead of Xamarin, Flutter was chosen as the alternative framework.
+This was chosen by the Frontend meta group and was based on the assumption that a newer framework that was well documented would be fairly easy for all groups to adapt to. 
+Most groups also liked the new framework since designing in the framework is much similar to regular web development. 
+Flutter is a user interface framework developed by Google, which is able to compile into native Android and IOS code which makes the app work at native speeds on both platforms. 
+The language used in the Flutter framework is called Dart, which is a general purpose language also developed by Google.
+When using Flutter three main ideas will have to be understood:
+Streams, reactive programming and the BLoC pattern.
+
+\subsubsection{Streams}
+In Flutter, streams are used to convey data.
+Unlike traditional ways of updating variables, e.g. \lstinline$a = b + c;$ from a traditional imperative language, where \lstinline$a$ would be updated at the point in time that line of code is executed, and if changes occurred to \lstinline{b} or \lstinline{c} at a later point in time, it would not necessarily have any direct effect on the variable \lstinline$a$.
+Streams allow us to continuously convey data, and pretty much anything can be conveyed by these streams.
+Streams can be thought of as having a sender and one or multiple subscribers.
+The streams send out data on which anyone can then listen in by subscribing to the feed the stream sends out.
+If we again consider the example above, the variable \lstinline$a$ can now be updated automatically as changes occur to \lstinline$b$ or \lstinline$c$ \cite{Flutterintro}.
+\subsubsection{Reactive Programming}
+Reactive Programming is a programming paradigm capable of handling asynchronous data streams. 
+In reactive programming, anything can be a stream; user input, variables and various data structures are all streams. 
+The use of streams in this way, gives us the ability to abstract out code so it becomes easier to focus on the business logic (instead of focusing on implementation details), likely resulting in a cleaner codebase.
+In reality this means we are able to create user interface widgets, that does not need to know anything about the functionality it is executing. 
+When a widget sends data to a stream, it does not need to know anything about when or where that information will be used. 
+The only thing it needs to concern itself with is the sending and listening to data streams. 
+The business logic can then be executed elsewhere \cite{ReactiveProg}.
+\subsubsection{BLoC}
+Business Logic Component (BLoC) pattern, not to be confused with blocks, is a pattern that Google designed to separate the business logic of an application from the user interface.
+The BLoC pattern enforces that the business logic is moved into several BLoCs, and by doing so enforces that widgets or user interface components are only concerned with the user interface things, and absolutely oblivious to business logic. 
+The business logic also has to rely entirely on streams for its input and output.
+The BLoC pattern also enforces platform and environment independence. 
+What this actually means for us is that by decoupling the user interface and business logic we are able to make changes to the business logic without making significant changes to the UI, and to make changes to the UI without it having too big of an impact on the business logic. 
+By dividing business logic and the user interface it also becomes easier to test the business logic, as it no longer has to be tested through the user interface \cite{Flutterintro}.

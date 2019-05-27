@@ -1,0 +1,42 @@
+\section{Implementation}
+As described in \autoref{SEC:Sprint4Issues} we were to work on \href{https://github.com/aau-giraf/weekplanner/issues/121}{issue \texttt{\#}121} where the app bar should be reduced in functionality when in "citizen mode". 
+Throughout this sprint other, non GitHub, issues has also been solved.
+In the following section the implementation and other issues will be discussed and elaborated upon.
+
+\subsection{App Bar in Citizen Mode}
+We were assigned to the issue of minimizing the functionality of the app bar when in citizen mode. 
+This was deemed as an easy functionality to fix, hence we only assigned one group member to implement it. 
+
+The original plan was to change the app bar when changing to citizen mode by instantiating a new app bar with the reduced buttons. 
+However, since another group had changed the way the app bar works, it was quite hard for us to actually implement it.
+This shift in the implementation meant that none of us were aware of an implementation that could solve the issue. 
+
+Once aware of the issue, we contacted the PO group for assistance. 
+We were then unassigned from the issue and the group who had written the new app bar implementation had a quick way of fixing the issue. 
+Further information regarding the implementation can be seen in the \href{https://github.com/aau-giraf/weekplanner/pull/262}{GitHub Pull Request}.
+
+\subsection{Database Migration}
+During the sprint one of the groups had implemented an activity timer that would enable a citizen to set an amount of time for an activity which was a requirement from the costumers.
+This meant updating the model of an activity to facilitate the timer. 
+
+As a consequence of the migration to the Docker Swarm the database is no longer publicly available to the internet and hence the Dotnet entity framework can not perform a database migration from the developers own computer, since they are not connected to the same network. 
+As an effort to minimize the Docker Images used to host the WEB-API, the base images used are the aspnet core images from Microsoft, which does not contain any of the developer tools needed to preform a migration. 
+
+Hence a new Docker Images was created with the Dotnet SDK base images, which does contain the entity framework tools needed, but with a much larger image size. 
+This meant that each time the a new Docker Image is built, a version with both base images should be created and pushed to Docker Hub, as seen on \autoref{FIG:DockerHubImagesOverview}. 
+
+\figur{1}{images/DockerImagesBothSDKandHosting.png}{Image showing the current Docker Images from \href{https://cloud.docker.com/u/giraf/repository/docker/giraf/web-api/tags}{Docker Hub}}{FIG:DockerHubImagesOverview}
+
+This means that once a migration is needed in a new version of the WEB-API, both Docker Images needs to be created and pushed to Docker Hub. 
+Once on Docker Hub the services on the Docker Swarm needs to be updated with the following command:
+
+\lstinline$docker service update Giraf_API_TEST --image=giraf/web-api:test-1-sdk$
+
+This will update the API to use the new WEB-API, which will then serve the WEB-API for the users.
+Once the WEB-API is running one has to execute the \lstinline$dotnet ef database update$ command to make the migration to the database.
+
+Once the migration has been made, the same update command can be used to change from a SDK version of the WEB-API to the ASP version that is more suitable for long term hosting.
+
+
+
+

@@ -1,0 +1,15 @@
+\section{Crunch}
+At the start of the crunch we were assigned to fix a bug in the app.
+The bug was related to marking an activity in the weekplan as completed; when a user creates a new activity and then immediately marks it as complete and goes to the overview of weekplans and back to the weekplan, where the activity was made, the completion marker was gone.
+
+We started by simply verifying that the bug was present in the app and that we could replicate it.
+Once we had confirmed that it was a valid bug, we started to look for the source of the bug.
+However, before we had done a lot of work another group had commented that they had a branch where the bug was already fixed.
+
+To avoid duplicate work, we contacted the group to inquire about the status of their branch and whether the fix was available to us for testing.
+This was not the case they only had the fix locally on their system, so we worked on documentation while we waited for them to make it available.
+
+Once it was available for testing, we discovered that the bug had not been fixed, but the group had an idea of why the bug was there.
+It seemed that the bug was caused by the new activity not being updated in the database such that it was marked as completed.
+This meant that it was not loaded back in when you returned to the weekplan.
+This was sadly discovered too late in the crunch, so we did not end up finding a solution to the issue.

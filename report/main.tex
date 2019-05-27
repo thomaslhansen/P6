@@ -8,20 +8,22 @@
   \input{Titelblad.tex}
 \end{titlingpage}
 
-\input{1.Introduction/0.PrefaceCtrl}
+\input{1.Introduction/0.PrefaceCtrl.tex}
+\input{resume.tex}
 \listoffigures
 \newpage
 \listoftables
 \newpage
 \tableofcontents
-\part{- Introduction -}\label{PART:Introduction}
-\input{1.Introduction/1.IntroductionCtrl}
-\part{- Sprints -}\label{PART:Sprints}
-\input{2.Sprints/SprintCtrl}
-\part{- Collaboration -}\label{PART:Collaboration}
+\part{ - Introduction -}\label{PART:Introduction}
+\input{1.Introduction/1.IntroductionCtrl.tex}
+\part{ - Sprints -}\label{PART:Sprints}
+\input{2.Sprints/SprintCtrl.tex}
+\part{ - Collaboration -}\label{PART:Collaboration}
+\input{3.Collaboration/CollaborationCtrl.tex}
 
-\part{- Evaluation -}\label{PART:Evalation}
-
+\part{ - Evaluation -}\label{PART:Evalation}
+\input{4.Evaluation/EvaluationCtrl.tex}
 
 \begingroup
 	\raggedright
@@ -30,9 +32,8 @@
 \endgroup
 \cleardoublepage
 
-\part{- Appendix -}\label{PART:Appendix}
+\part{ - Appendix -}\label{PART:Appendix}
 \begin{appendices}
-\chapter{Appendix}
 \input{Appendix/0.AppendixCtrl}
 
 \end{appendices}

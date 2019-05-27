@@ -247,6 +247,16 @@ keywordstyle=[3]\color[rgb]{0.127,0.427,0.514}, %Turquoise
 keywordstyle=[4]\color[rgb]{0.4,0.4,0.4},       %Grey
 commentstyle=\color[rgb]{0.133,0.545,0.133},    %Dark green
 stringstyle=\color[rgb]{0.639,0.082,0.082},
+ % æ, ø og å encodes rigtigt i listings
+literate=%
+{æ}{{\ae}}1
+{å}{{\aa}}1
+{ø}{{\o}}1
+{Æ}{{\AE}}1
+{Å}{{\AA}}1
+{Ø}{{\O}}1,
+extendedchars=\true,
+inputencoding=ansinew,
 }
 \let\origthelstnumber\thelstnumber
 \belowcaptionskip=-10pt
