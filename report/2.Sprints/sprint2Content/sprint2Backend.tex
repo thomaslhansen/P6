@@ -2,18 +2,18 @@
 In this sprint, two backend meetings were held.
 
 It was decided that Swagger should be used differently.
-Prior to when we chose to make use of Flutter, Swagger was used for auto generating specifications that the frontend could use to communicate with the API.
+Prior to when we chose to make use of Flutter, Swagger was used for auto generating specifications that the frontend could use to communicate with the WEB-API.
 It was chosen, that doing this manually was preferable due to the greater control this would allow for.
 The automatic way with Swagger also proved to be bothersome, as it would throw error messages.
 One member of the Backend group noticed that the auto generated version would contain too many syntax errors for it to be feasible for a human to fix.
 With these considerations in mind, the specification is now written manually.
 
-It was discussed that the API had several possible optimisations that could be made.
-Specifically fetching all weekplans at once, instead of making several API calls to get all weekplans for a user.
+It was discussed that the WEB-API had several possible optimisations that could be made.
+Specifically fetching all weekplans at once, instead of making several WEB-API calls to get all weekplans for a user.
 Suggested changes from the previous semesters were also discussed, some of them, however, were not all equally relevant after the changes we have made this semester.
 We decided to not to implement all of these changes yet, as other concerns are more pressing.
 
-At the backend meeting, it was decided that new API endpoints should start with v2, as this would allow us to distinguish these from the rest.
+At the backend meeting, it was decided that new WEB-API endpoints should start with v2, as this would allow us to distinguish these from the rest.
 On the same note, the pictogram search was discussed too, as it currently made a query for each pictogram one at a time, where as we would like it to make a single query to fetch a list of pictograms instead.
 
 The last point that was discussed at the two meetings was how the admin panel seemed incredibly lacking with its current implementation, since the admin currently only has rights to change the username of a citizen. 

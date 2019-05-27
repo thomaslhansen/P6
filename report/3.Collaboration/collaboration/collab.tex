@@ -5,10 +5,10 @@ With both a new ability for the frontend to search for Pictograms and a monitori
 Performing several searches in a short timespan was guaranteed to crash the backend or the database.
 
 A more in depth inspection found that the database stored all the pictogram images, which requires the database to extract vast amounts of binary-image-data for each pictogram related query. 
-Furthermore, the API ensured that all pictograms loaded should be Base64 encoded on load, which meant that all pictograms traveling through the API, had to go through relatively large processing.
+Furthermore, the WEB-API ensured that all pictograms loaded should be Base64 encoded on load, which meant that all pictograms traveling through the WEB-API, had to go through relatively large processing.
 
 We decided to extract the pictograms from the database and instead store them as files on disk, which relieved the database of the large transfers. 
-The extraction itself was not enough to stop the crashing of the API, as the pictograms were still being Base64 encoded. 
+The extraction itself was not enough to stop the crashing of the WEB-API, as the pictograms were still being Base64 encoded. 
 We decided to remove the image property from the pictogram DTO, as it contained the Base64 encoded image, thereby halting all encoding.
 
 The solution showed a massive improvement in both the amount of data transferred and response time as seen on \autoref{tab:newApi}.
@@ -30,4 +30,4 @@ The most significant improvement was extracting the pictogram images from the da
 This improvement has other advantages than just being faster; it also puts less load on the database, allowing the database to handle more simultaneous connections and it massively reduced the size of the database, making it much easier to search in.
 
 After the improvements, searching for pictograms takes a fraction of the time it took before the improvement. 
-The specific improvement also translates to an overall improvement of the system, as the system can allocate more resources to other parts of the API.
+The specific improvement also translates to an overall improvement of the system, as the system can allocate more resources to other parts of the WEB-API.
