@@ -30,7 +30,7 @@ DB:                          # The DB service will be changed to use the product
 
 The primary issue with the old servers was that the database was accessible from the public internet.
 In order to mitigate this issue the new Docker Swarm has two different networks; one for the frontend and one for the backend.
-The backend network is attached to both the API and the database services which means that in order to reach the database from public internet all traffic must pass through the API.
+The backend network is attached to both the WEB-API and the database services which means that in order to reach the database from public internet all traffic must pass through the WEB-API.
 Furthermore, Docker allows us to specify what action should be taken once the service experiences a failure and are unable to recover - in this case the service should simply reboot.
 
 Once the service had been started, the only thing left was to create a dump from the existing MySQL server.
@@ -40,10 +40,10 @@ The newly created \lstinline$.sql$ file can now be moved to the new servers and 
 Once the data has been imported into the database it is ready to serve the data for the project.
 
 \subsection{API Migration}
-In order to migrate the API from the existing servers to the new servers, the Docker Image used to serve the old Docker containers should be updated.
+In order to migrate the WEB-API from the existing servers to the new servers, the Docker Image used to serve the old Docker containers should be updated.
 The old semester had created a Dockerfile that used the Dotnet Core SDK for hosting the project, which meant that the entire Docker Image would take up $2240 Mb$ for storage.
 Since the new servers supplied by ITS have very small disk-storages, using the old image-files would quickly fill up the storage, rendering the servers unusable.
-This problem could however by fixed by telling the Dotnet Core SDK to build the project for production and then use the Dotnet Core runtime to serve the API.
+This problem could however by fixed by telling the Dotnet Core SDK to build the project for production and then use the Dotnet Core runtime to serve the WEB-API.
 These changes have resulted in a new Dockerfile which can be seen on \autoref{APIDockerfile}.
 
 By adding this extra step the total size of the Docker Image was reduced dramatically, as can be seen on \autoref{DockerImageSize}.
@@ -97,15 +97,15 @@ EXPOSE 5000
 ENTRYPOINT ["dotnet", "GirafRest.dll", "--list"]
 \end{lstlisting}
 
-Once the API Docker Image had been updated to not include passwords, the Docker Swarm could be updated to use the new and enhanced Docker Image.
+Once the WEB-API Docker Image had been updated to not include passwords, the Docker Swarm could be updated to use the new and enhanced Docker Image.
 On \autoref{APIService} a section of the \lstinline$docker-compose.yml$ file can be seen.
 The service uses the NFS file share to store pictograms and to store the confidential \lstinline$appsettings.json$ file which is then mounted inside the containers.
 
-The API services are all connected to both the frontend and backend network in order for the API to communicate to the database, and for the API to communicate to the internet via a reverse proxy.
-Each version of the API has three replicas of each service, in order to void downtime on the entire service in case of a failure in a container.
+The WEB-API services are all connected to both the frontend and backend network in order for the WEB-API to communicate to the database, and for the WEB-API to communicate to the internet via a reverse proxy.
+Each version of the WEB-API has three replicas of each service, in order to void downtime on the entire service in case of a failure in a container.
 
 With Docker Swarm comes the ability to make ongoing health checks on the containers.
-This is used in the API to check whether the API is still responding to a request or not.
+This is used in the WEB-API to check whether the WEB-API is still responding to a request or not.
 If a container does not respond three times in a row it will be terminated and a new container will be started by the Docker Swarm Orchestrator.
 
 \begin{lstlisting}[caption={Docker database service},captionpos=b,label=APIService,escapechar=\%]
