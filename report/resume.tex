@@ -3,20 +3,34 @@
 The Giraf (Graphical Interface Resource for Autistic Folk) project is a mobile software solution.
 It is made to assist autistic folk with little to no verbal communication ability.
 Giraf is made to be a collection of mobile applications that will assist autistic folk in their everyday lives
-The only working application in this collection is called 'Weekplanner', an application for scheduling an autistic child's day using pictograms.
+The only working application in this collection is called 'Weekplanner', an application for scheduling an autistic folks day using pictograms.
 
-% Intro to the Giraf working model
-Giraf's working model is based on the agile development Scrum.
-It did start out as a Scrum of Scrums, but during the project parts of scrum were abandoned.
-The individual groups that worked on Giraf were also not required to use scrum.
+% Intro to the Giraf development model
+Giraf's development model is based on the agile Scrum development method.
+It did start out as a Scrum of Scrums model, but during the project period parts of Scrum were abandoned.
+The individual groups that worked on Giraf were also not required to use Scrum and was free to choose their own individual process.
 Hence the Giraf project is only loosely based on the Scrum method, where Giraf uses most of the elements the individual groups tried different working methods internally, e.g., this group used the Waterfall model.
+While other groups choose Extreme Programming or straight up Scrum. 
 
 % Weekplanner language and framework change
+The Giraf Project is a multi semester project meaning; the codebase of the project has existed for years (since 2011). 
+The project was previously written with a C\# WEB-API and an android app written in Xamarin, but due to the high amount of developers working from a Linux based operating system, this became a problem. 
+Hence a framework change from Xamarin to Flutter was decided. 
+This change also meant that a requirement from the costumers was fulfilled; Weekplanner on IOS.
 
 % Server stability (Docker Swarm)
+During the project it quickly became obvious, that the WEB-API backend was very unstable and unable to handle crashes in a sensible manner. 
+It was hence decided to move the existing WEB-API from dotnet core version 2.0 to the newer 2.2 and use Docker to optimize the hosting environment. 
+With the changes the WEB-API, it is now much more stable and is much better suited to operate with real costumers/users.
 
 % WEB-API pictogram performance update
+During the development of the Weekplanner application it became obvious that the WEB-API was very slow to deliver pictograms to the application. 
+This was from the costumers point of view, a large annoyance which should be resolved as quick as possible. 
+A group of developers came together, to update the way pictograms was served and the overall responsiveness of the application saw a large improvement.
 
 % General state of Giraf after the semester
+At the end of the project period the overall state of the project is that the Weekplanner application is largely done, but still in need of some small improvements, and the WEB-API is now hosted in a much more effective and stable manner. 
+The future semesters may only need to add new functionality to both the WEB-API and Weekplanner or start the development of some new application that fits to the scope of the project.
+
 
 \newpage
