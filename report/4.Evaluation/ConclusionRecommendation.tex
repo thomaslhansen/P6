@@ -1,0 +1,44 @@
+\chapter{Conclusion and Recommendations}
+By comparing our post project evaluation to our pre project expectations, we have reached a conclusion for the project from our perspective, as well as a set of recommendations for the following years' 6\textsuperscript{th} semester students.
+The following three sections sum up what we have learned from working on this project, and states our reflections as recommendations for future development teams.
+
+\section{Internal Process}
+Our initial thoughts about the internal process were that, based on the previous semesters recommendations, the Scrum of Scrums process model should work well.
+But we quickly realized that due to our team's size, it would become hard to implement a full Scrum development model without it impacting our effectiveness.
+Scrum was attempted through sprint one, and our own expectation held true.
+Once we realized this, we shifted to the Waterfall development model which turned out to work much better for a team of our size.
+
+For future semesters we would recommend not forcing any sort of development model on any of the internal groups, and instead let the individual groups decide depending on size and individual preferences.
+
+\section{Giraf Process}
+Our initial thoughts on the entire Giraf process was that, based on presentations from semester coordinator Ulrik Nyman, and a student from last year's Giraf development team, Scrum of Scrums would be a suitable development model for this years students.
+After each of the four sprints in this semester, the development model would be evaluated and tweaked, and each time the conclusion would be that a less strict development model was needed.
+Though it might seem counterproductive to keep changing the development model, throughout our group we appreciated this initial strict line, as it was simpler to implement the textbook version, and later make custom tweaks to the needs of our Giraf development team.
+
+Our recommendations for future semesters will be to start in the same strict model, and make sure to make a running evaluation on whether or not a less strict development model could be beneficial.
+
+\section{Tools}
+During the entirety of this semester, some tools (e.g. Slack and GitHub) were used both internally in this group, as well as Giraf wide.
+The following subsections will conclude on our tools' usefulness from both points of view.
+
+\subsection{Giraf}
+Our initial thoughts when taking over the project, and looking over the tools in use from the previous development team, it would be necessary to allocate a small group throughout the semester to maintain the tools.
+This was unfortunate since this tool maintaining group could be used more productively as developers on the product instead.
+The Giraf development team quickly realized that this thought on the tools indeed was the case, and a migration of the tools was conducted.
+Instead of using GitLab hosted by the university, the free GitHub service was utilized, and for the Phabricator instance, which was used to host the documentation for the project, was migrated to GitHub pages.
+
+From the handover of the project, the WEB-API was hosted via Docker inside a Kubernetes swarm, which was not properly managed, and thus gave a lot of issue if the WEB-API should crash.
+As a result of this semester's work, the currently running servers and Docker Swarm are properly managed, stable, and should not cause any issues for future semesters.
+
+Our recommendations for future semesters Giraf development teams is that the current state of affairs with the tools is both sustainable and stable, and should thus not be changed.
+We recommend to avoid any breaking changes on the servers, and would highly recommend that only experienced administrators are allowed to conduct work on the servers.
+If no such people exists in the Giraf development team, contacting the past semester for guidance would be the best and safest choice.
+
+\subsection{Internal}
+As for the tools to be used internally in our group, some experience from our previous semesters mostly gave us an edge as we already knew what tools had worked pleasantly before.
+Slack was expected to be convenient for online communication, and lived up to its expectations.
+\LaTeX was expected to organize and produce all written text in a neatly looking PDF file, which it did with little to no complication due to our previous experience writing in \LaTeX.
+GitHub was expected to help improve the quality of the text produced by our group, which it did flawlessly through a rhythm of branching, pull requesting, reviewing, and merging.
+
+Our recommendation for future groups would be to use tools already familiar to most of the members.
+If the group cannot decide on any tools, then our strict recommendations will be Slack for internal communication, \LaTeX for report compilation, and Git for version control of the report.
