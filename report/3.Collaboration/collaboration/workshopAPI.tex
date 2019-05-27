@@ -15,8 +15,8 @@ As each test was now independent, they could no longer fail if a different test 
 Additionally, it was discovered that some of the existing unit tests were of lesser quality, which should probably be addressed in the future if code quality of the backend is of priority.
 
 By lesser quality we mean, primarily, the improper use of correct assertions. 
-Also the setup of the test was not following any know standards, fx the triple A of arrange, act, assert. 
-This resulted in the fact that some tests was unable to stand alone.
+Also the setup of the test was not following any known standards, fx the triple A of arrange, act, assert. 
+This resulted in some tests being unable to stand alone.
 
 \begin{lstlisting}[label={snip:OldTestBeforeUpdate}, caption={The old test after images are served from disk}, captionpos=b, language=CSharp] 
 [Fact]
